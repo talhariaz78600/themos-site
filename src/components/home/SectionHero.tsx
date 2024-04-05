@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-// import HeroSearchForm from "AFolder/home/HeroSearchForm";
+import HeroSearchForm from "./HeroSearchForm";
 
 export interface SectionHeroProps {
   className?: string;
@@ -35,7 +35,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
       </div>
 
       <div className="z-10 lg:-mt-40 w-full">
-        {/* <HeroSearchForm currentTab={"Transfers"} className={undefined} currentPage={undefined} /> */}
+        <HeroSearchForm currentTab={"Transfers"} className={""} currentPage={""} />
       </div>
     </div>
   );
