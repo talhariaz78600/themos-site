@@ -17,7 +17,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           <h2 className="font-medium text-2xl md:text-2xl xl:text-3xl !leading-[114%] text-neutral-200">
             Book Now With Us
           </h2>
-          <span className=" lg:block text-base md:text-lg text-neutral-500 dark:text-neutral-400">
+          <span className=" lg:block text-base md:text-lg text-neutral-400 dark:text-neutral-400">
             With Tour-Greece you will have a trip full of experiences, book with us now your private transfer or tour in Greece.
           </span>
         </div>
@@ -27,8 +27,8 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             src="/hero-right.png"
             alt="My Image"
             priority={true}
-            width={500} // Specify width for optimization
-            height={300} // Specify height for optimization
+            width={500} 
+            height={300}
             
           />
         </div>
