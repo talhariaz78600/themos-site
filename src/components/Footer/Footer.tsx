@@ -1,5 +1,4 @@
-// components/Footer.tsx
-"use client"
+
 import Link from "next/link";
 import Logo from "../Logo/Logo";
 import SocialsList1 from "../SocialsList/SocialsList";
@@ -79,15 +78,13 @@ const Footer: React.FC = () => {
     const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
         return (
             <div key={index} className="text-sm ref-footer px-2">
-                <p className="font-semibold  dark:text-neutral-200 text-neutral-200 leading-relaxed text-[30px] md:text-[36px]">
+                <p className="font-semibold text-lg md:text-xl text-neutral-200 leading-relaxed">
                     {menu.title}
                 </p>
                 <ul className="mt-5 space-y-4">
                     {menu.menus.map((item, index) => (
-                        <Link key={index} className="text-neutral-300 dark:text-neutral-300 hover:text-black dark:hover:text-white hover:text-white"  href={item.href}>
-                            <li>
-                                {item.label}
-                            </li>
+                        <Link key={index} className="text-neutral-300 hover:text-black hover:text-white"  href={item.href}>
+                            <li className="text-base">{item.label}</li>
                         </Link>
                     ))}
                 </ul>
@@ -96,7 +93,7 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <div className="nc-Footer relative py-24 lg:py-16 border-t border-neutral-200 dark:border-neutral-700  md:px-1 lg:px-2">
+        <div className="nc-Footer relative py-12 lg:py-16 border-t border-neutral-200 dark:border-neutral-700 md:px-1 lg:px-2">
             <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
                 <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
                     <div className="col-span-2 md:col-span-1">
@@ -108,10 +105,10 @@ const Footer: React.FC = () => {
                 </div>
                 {widgetMenus.map(renderWidgetMenuItem)}
             </div>
-            <p className="text-center text-white pt-10 font-bold text-[33px] md:text-[46px] leading-relaxed">
+            <p className="text-center text-white pt-8 font-bold text-lg md:text-xl leading-relaxed">
                 Member Of The Greek Tourism Organization
             </p>
-            <p className="text-center text-white font-bold text-[33px] md:text-[46px] leading-relaxed">Registration Number: O206E81000524201</p>
+            <p className="text-center text-white font-bold text-lg md:text-xl leading-relaxed">Registration Number: O206E81000524201</p>
         </div>
     );
 };
