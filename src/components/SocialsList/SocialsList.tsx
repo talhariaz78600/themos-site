@@ -13,8 +13,8 @@ const socials: SocialType[] = [
   // { name: "Facebook", icon: "lab la-facebook-square", href: "#" },
   // { name: "Twitter", icon: "las la-phone-volume", href: "#" },
   // { name: "Instagram", icon: "lab la-instagram", href: "#" },
-  { name: "+30 6947484950", icon: "las la-phone-volume", href: PHONE_NUMBER },
-  { name: EMAIL, icon: "las la-envelope", href: EMAIL },
+  { name: "+30 6947484950", icon: "fa-solid fa-phone", href: PHONE_NUMBER },
+  { name: EMAIL, icon: "fa-regular fa-envelope", href: EMAIL },
 ];
 
 const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
@@ -26,7 +26,7 @@ const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
         key={index}
         title={`Share on ${item.name}`}
       >
-        <em className={item.icon}></em>
+        <i className={item.icon} aria-hidden={true}></i>
         <span className="hidden lg:block text-sm">{item.name}</span>
       </a>
     );

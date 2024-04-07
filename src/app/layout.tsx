@@ -18,6 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} bg-neutral-900`}>{children}
       <Footer/>
+      <script src="https://kit.fontawesome.com/94794741f1.js"></script>
       </body>
     </html>
   );

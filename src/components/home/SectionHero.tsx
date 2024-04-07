@@ -8,7 +8,7 @@ export interface SectionHeroProps {
 
 const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
   return (
-    <div className={`nc-SectionHero flex-col lg:flex-col relative ${className}`} data-nc-id="SectionHero">
+    <div className={`nc-SectionHero flex-col lg:flex-col relative ${className} px-2`} data-nc-id="SectionHero">
       <div className="flex flex-col lg:flex-row lg:items-center">
         <div className="flex-shrink-0 lg:w-1/2 flex flex-col items-start space-y-8 sm:space-y-10 pb-14 lg:pb-64 xl:pr-14 lg:mr-10 xl:mr-0">
           <h2 className="font-medium text-3xl md:text-4xl xl:text-5xl leading-[114%] text-neutral-200">
