@@ -36,8 +36,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({ className, isCenter }) =>
     ];
 
     return (
-        
-        <div className={`nc-SectionHowItWork ${className}`} data-nc-id="SectionHowItWork">
+        <div className={`nc-SectionHowItWork ${className} bg-black py-8 px-2 rounded-lg`} data-nc-id="SectionHowItWork">
             <div className="max-w-2xl"><h2 className="text-3xl md:text-4xl font-semibold text-white">How To Book With Us</h2><span className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-400 dark:text-neutral-400">Keep calm &amp; travel on</span></div>
             <div className="mt-20 relative grid md:grid-cols-3 gap-20">
                 <img className="hidden md:block absolute inset-x-0 top-10" src="/VectorHIW.svg" alt="VectorImg" />

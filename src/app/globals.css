@@ -188,3 +188,6 @@ body {
     width: 300px;
   }
 }
+.font-semibold {
+  font-weight: 600;
+}
