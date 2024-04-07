@@ -78,16 +78,14 @@ const Footer: React.FC = () => {
     const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
         return (
             <div key={index} className="text-sm ref-footer px-2">
-                <p className="font-semibold text-lg md:text-xl text-neutral-200 leading-relaxed">
+                <p className="font-semibold text-lg md:text-xl mb-5 text-neutral-200 leading-relaxed">
                     {menu.title}
                 </p>
-                <ul className="mt-5 space-y-4">
                     {menu.menus.map((item, index) => (
-                        <Link key={index} className="text-neutral-300 hover:text-black hover:text-white"  href={item.href}>
-                            <li className="text-base">{item.label}</li>
+                        <Link key={index} className="space-y-4 text-base text-neutral-300 hover:text-black hover:text-white"  href={item.href}>
+                            {item.label}
                         </Link>
-                    ))}
-                </ul>
+                    ))} 
             </div>
         );
     };

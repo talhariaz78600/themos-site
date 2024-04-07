@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { EMAIL, PHONE_NUMBER } from "../constants/apiEndpoints";
-
+import Link from "next/link";
 export interface SocialsList1Props {
   className?: string;
 }
@@ -20,7 +20,7 @@ const socials: SocialType[] = [
 const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
   const renderItem = (item: SocialType, index: number) => {
     return (
-      <a
+      <Link
         href={"mailto:" + item.href}
         className="flex items-center text-2xl  hover:text-black text-neutral-300 dark:hover:text-white hover:text-white leading-none space-x-2 group"
         key={index}
@@ -28,7 +28,7 @@ const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
       >
         <i className={item.icon} aria-hidden={true}></i>
         <span className="hidden lg:block text-sm">{item.name}</span>
-      </a>
+      </Link>
     );
   };
 
