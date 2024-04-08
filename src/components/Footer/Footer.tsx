@@ -68,7 +68,7 @@ const widgetMenus: WidgetFooterMenu[] = [
             { href: "/#ourFleet", label: "Our Fleet" },
             // {href: "#", label: "Contact Us"},
             // { href: "/privacy", label: "Privacy Policy" },
-            { href: "/terms", label: "Privacy Policy" },
+            { href: "/privacy", label: "Privacy Policy" },
             { href: "/terms", label: "Terms & Conditions" },
         ],
     },

@@ -9,7 +9,7 @@ const LogoSvg = () => {
       width="100%"
       height="100%"
       viewBox="0, 0, 400,171.46984470928132"
-      className="w-24 block dark:hidden"
+      className="w-24"
     >
       <g id="svgg1">
         <path

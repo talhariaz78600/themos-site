@@ -2,7 +2,7 @@
 import Heading from "../Heading/Heading";
 import React, { FC } from "react";
 import { useEffect} from "react";
-import ncNanoId from "@/utails/ncNanoId";
+
 import Glide from "@glidejs/glide";
 export interface SectionClientSayProps {
     className?: string;
@@ -37,6 +37,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
     if (document.querySelector(`.talha`)) {
       new Glide(`.talha`, {
         perView: 1,
+        autoplay: 5000
       }).mount();
     }
   }, []);
