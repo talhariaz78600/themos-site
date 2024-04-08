@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.2",
+    "@glidejs/glide": "^3.6.0",
     "next": "14.1.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-uuid": "^2.0.0",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
+    "@types/glidejs__glide": "^3.6.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

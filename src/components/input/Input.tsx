@@ -28,14 +28,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         type={type}
         className={`block w-full 
           peer
-          placeholder-transparent                      
-          bg-white             
-          dark:bg-neutral-900 ${rounded} ${fontClass} ${sizeClass} ${className}
+          placeholder-transparent                                   
+          bg-neutral-900 border text-white lg:mx-2 ${rounded} ${fontClass} ${sizeClass} ${className}
            
            ${
              isError
                ? "border-red-500"
-               : "dark:border-neutral-700 border-neutral-200"
+               : "dark:border-neutral-100 border-neutral-100"
            }
           `}
         {...args}

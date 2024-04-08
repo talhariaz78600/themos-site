@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { EMAIL, PHONE_NUMBER } from "../constants/apiEndpoints";
-import Link from "next/link";
 export interface SocialsList1Props {
   className?: string;
 }
