@@ -81,11 +81,14 @@ const Footer: React.FC = () => {
                 <p className="font-semibold text-lg md:text-xl mb-5 text-neutral-200 leading-relaxed">
                     {menu.title}
                 </p>
+                    <ul>
+
                     {menu.menus.map((item, index) => (
-                        <Link key={index} className="space-y-4 text-base text-neutral-300 hover:text-black hover:text-white"  href={item.href}>
-                            {item.label}
+                        <Link key={index}   href={item.href}>
+                            <li className="text-base text-neutral-300 hover:text-black hover:text-white">{item.label}</li>
                         </Link>
                     ))} 
+                    </ul>
             </div>
         );
     };

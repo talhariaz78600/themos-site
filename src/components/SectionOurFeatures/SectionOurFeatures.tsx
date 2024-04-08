@@ -19,7 +19,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
       data-nc-id="SectionOurFeatures"
     >
       <div className="flex-grow">
-        <NcImage src={"/images/our-features.png"} id="section-our-feature" />
+        <NcImage src={"/images/our-features.png"} className="" id="section-our-feature" />
       </div>
       <div
         className={`max-w-2xl flex-shrink-0 mt-10 lg:mt-0 lg:w-2/5 ${

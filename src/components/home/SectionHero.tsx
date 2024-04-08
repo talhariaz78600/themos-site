@@ -28,7 +28,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
             alt="My Image"
             priority={true}
             width={500} 
-            height={300}
+            height={500}
             
           />
         </div>

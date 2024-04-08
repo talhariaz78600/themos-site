@@ -9,10 +9,13 @@ export interface SocialType {
   icon: string;
   href: string;
 }
+{/* <i class="fa-brands fa-square-facebook"></i> */}
+{/* <i class="fa-brands fa-instagram"></i> */}
+{/* <i class="fa-brands fa-square-twitter"></i> */}
 const socials: SocialType[] = [
-  // { name: "Facebook", icon: "lab la-facebook-square", href: "#" },
-  // { name: "Twitter", icon: "las la-phone-volume", href: "#" },
-  // { name: "Instagram", icon: "lab la-instagram", href: "#" },
+  { name: "Facebook", icon: "fa-brands fa-square-facebook", href: "#" },
+  { name: "Twitter", icon: "fa-brands fa-square-twitter", href: "#" },
+  { name: "Instagram", icon: "fa-brands fa-instagram", href: "#" },
   { name: "+30 6947484950", icon: "fa-solid fa-phone", href: PHONE_NUMBER },
   { name: EMAIL, icon: "fa-regular fa-envelope", href: EMAIL },
 ];
@@ -20,7 +23,7 @@ const socials: SocialType[] = [
 const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
   const renderItem = (item: SocialType, index: number) => {
     return (
-      <Link
+      <a
         href={"mailto:" + item.href}
         className="flex items-center text-2xl  hover:text-black text-neutral-300 dark:hover:text-white hover:text-white leading-none space-x-2 group"
         key={index}
@@ -28,7 +31,7 @@ const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
       >
         <i className={item.icon} aria-hidden={true}></i>
         <span className="hidden lg:block text-sm">{item.name}</span>
-      </Link>
+      </a>
     );
   };
 

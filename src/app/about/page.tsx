@@ -1,9 +1,9 @@
 import React from 'react'
-
+import PageAbout from '@/components/PageAbout/PageAbout'
 function page() {
   return (
     <div>
-        <p>this is about page of this website </p>    
+        <PageAbout/> 
     </div>
   )
 }

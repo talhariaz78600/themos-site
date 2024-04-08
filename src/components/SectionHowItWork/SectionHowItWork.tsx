@@ -42,7 +42,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({ className, isCenter }) =>
                 <img className="hidden md:block absolute inset-x-0 top-10" src="/VectorHIW.svg" alt="VectorImg" />
                 {sectionHowItWorkProps.map((item) => (
                     <div key={item.id} className="relative flex flex-col items-center max-w-xs mx-auto">
-                        <NcImage containerClassName="mb-8 max-w-[200px] mx-auto" src={item.img} id={`section-how-it-work-${item.id}`} />
+                        <NcImage containerClassName="mb-8 max-w-[200px] mx-auto" className="" src={item.img} id={`section-how-it-work-${item.id}`} />
                         <div className="text-center mt-auto">
                             <h3 className="text-xl font-semibold text-white">{item.title}</h3>
                             <span className="block mt-5 text-neutral-400 dark:text-neutral-400">
