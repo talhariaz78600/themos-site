@@ -1,8 +1,7 @@
 "use client"
 import Heading from "../Heading/Heading";
-import { v4 as uuidv4 } from "uuid";
 import React, { FC } from "react";
-import { useEffect ,useRef} from "react";
+import { useEffect} from "react";
 import ncNanoId from "@/utails/ncNanoId";
 import Glide from "@glidejs/glide";
 export interface SectionClientSayProps {
@@ -34,13 +33,9 @@ const DEMO_DATA = [
 ];
 
 const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
-    const uniqueId = uuidv4();
-  const UNIQUE_CLASS = "glide_" + uniqueId;
-
   useEffect(() => {
-    console.log(uniqueId);
-    if (document.querySelector(`.${UNIQUE_CLASS}`)) {
-      new Glide(`.${UNIQUE_CLASS}`, {
+    if (document.querySelector(`.talha`)) {
+      new Glide(`.talha`, {
         perView: 1,
       }).mount();
     }
@@ -94,7 +89,7 @@ const SectionClientSay: FC<SectionClientSayProps> = ({ className = "" }) => {
       <div className="relative md:mb-16 max-w-2xl mx-auto">
         {renderBg()}
         <img className="mx-auto" src="/images/clientSayMain.png" alt="Client10 say" />
-        <div className={`mt-12 lg:mt-16 relative ${UNIQUE_CLASS}`}>
+        <div className={`mt-12 lg:mt-16 relative talha`}>
           <img
             className="opacity-50 md:opacity-100 absolute -mr-16 lg:mr-3 right-full top-1"
             src="/images/quotation.png"
