@@ -25,7 +25,7 @@ const NextPrev: FC<NextPrevProps> = ({
 }) => {
   return (
     <div
-      className={`nc-NextPrev relative flex items-center text-neutral-900 dark:text-neutral-300 ${className}`}
+      className={`nc-NextPrev relative flex items-center text-neutral-300 dark:text-neutral-300 ${className}`}
       data-nc-id={`NextPrev-${id}`}
       data-glide-el="controls"
     >
@@ -33,22 +33,22 @@ const NextPrev: FC<NextPrevProps> = ({
         <button
           className={`${btnClassName} ${
             !onlyPrev ? "mr-[6px]" : ""
-          } bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-6000 dark:hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 ${twFocusClass()}`}
+          } bg-neutral-900 dark:bg-neutral-900 border border-neutral-200 border-neutral-6000 hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 ${twFocusClass()}`}
           onClick={onClickPrev}
           title="Prev"
           data-glide-dir="<"
         >
-          <em className="las la-angle-left"></em>
+        <i className="fa-solid fa-arrow-left"></i>
         </button>
       )}
       {!onlyPrev && (
         <button
-          className={`${btnClassName} bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-6000 dark:hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 ${twFocusClass()}`}
+          className={`${btnClassName} bg-neutral-900 dark:bg-neutral-900 border border-neutral-200 border-neutral-6000 hover:border-neutral-500 rounded-full flex items-center justify-center hover:border-neutral-300 ${twFocusClass()}`}
           onClick={onClickNext}
           title="Next"
           data-glide-dir=">"
         >
-          <em className="las la-angle-right"></em>
+          <i className="fa-solid fa-arrow-right"></i>
         </button>
       )}
     </div>

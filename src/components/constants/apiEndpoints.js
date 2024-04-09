@@ -1,5 +1,5 @@
 // import {loadStripe} from "@stripe/stripe-js";
-// import {GiBattleship, GiCommercialAirplane} from "react-icons/gi";
+import {GiBattleship, GiCommercialAirplane} from "react-icons/gi";
 import React, {FC} from "react";
 
 
@@ -18,36 +18,36 @@ export const REACT_APP_REST_DOMAIN_NAME = process.env.REACT_APP_REST_DOMAIN_NAME
 export const PHONE_NUMBER = "tel:306947484950";
 export const EMAIL = "info@tour-greece.gr";
 
-// export const globalSearchPlaceholder = [
-//     {
-//         placeId: "Athens_Airport",
-//         id: "ChIJYVzn2RqQoRQRqrPuCt8Vsjg",
-//         title: "Athens Airport",
-//         subtitle: 'Athens International Airport "Eleftherios Venizelos", Greece ',
-//         icon: <GiCommercialAirplane size={25}/>,
-//     },
-//     {
-//         placeId: "Piraeus_Port",
-//         id: "ChIJW1zvv-u7oRQRTJEbrpSi9jI",
-//         title: "Piraeus Port",
-//         subtitle: "Piraeus Port (All ferries and Cruises)",
-//         icon: <GiBattleship size={25}/>,
-//     },
-//     {
-//         placeId: "Lavrio_Port",
-//         id: "ChIJw0OVl3H0oRQRKPRZoqtJ6_I",
-//         title: "Lavrio Port",
-//         subtitle: "Lavrio Port (All ferries and Cruises)",
-//         icon: <GiBattleship size={25}/>,
-//     },
-//     {
-//         placeId: "Rafina_Port",
-//         id: "ChIJg6dE4ZqDoRQRCovmgvTXaFY",
-//         title: "Rafina Port",
-//         subtitle: "Rafina Port (All ferries and Cruises)",
-//         icon: <GiBattleship size={25}/>,
-//     },
-// ];
+export const globalSearchPlaceholder = [
+    {
+        placeId: "Athens_Airport",
+        id: "ChIJYVzn2RqQoRQRqrPuCt8Vsjg",
+        title: "Athens Airport",
+        subtitle: 'Athens International Airport "Eleftherios Venizelos", Greece ',
+        icon: <GiCommercialAirplane size={25}/>,
+    },
+    {
+        placeId: "Piraeus_Port",
+        id: "ChIJW1zvv-u7oRQRTJEbrpSi9jI",
+        title: "Piraeus Port",
+        subtitle: "Piraeus Port (All ferries and Cruises)",
+        icon: <GiBattleship size={25}/>,
+    },
+    {
+        placeId: "Lavrio_Port",
+        id: "ChIJw0OVl3H0oRQRKPRZoqtJ6_I",
+        title: "Lavrio Port",
+        subtitle: "Lavrio Port (All ferries and Cruises)",
+        icon: <GiBattleship size={25}/>,
+    },
+    {
+        placeId: "Rafina_Port",
+        id: "ChIJg6dE4ZqDoRQRCovmgvTXaFY",
+        title: "Rafina Port",
+        subtitle: "Rafina Port (All ferries and Cruises)",
+        icon: <GiBattleship size={25}/>,
+    },
+];
 
 export const dialogErrorMessage = {
     title: "An Error Occurred",

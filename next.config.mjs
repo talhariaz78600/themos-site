@@ -6,7 +6,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "images.unsplash.com", // Wrap domain in an object
             },
-
+            {
+                protocol: "https",
+                hostname: "images.pexels.com", // Wrap domain in an object
+            },
         ],
     },
 };

@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import Link from "next/link";
 interface HeroSearchFormProps {
@@ -5,7 +6,7 @@ interface HeroSearchFormProps {
     currentTab: string;
     currentPage: string;
 }
-
+import TransferSearchForm from "../transfer/TransferSearchPage";
 const HeroSearchForm: React.FC<HeroSearchFormProps> = ({ className, currentTab, currentPage }) => {
     const tabs: string[] = ["Transfers", "Tours"];
     const initialTab: string = currentTab;
@@ -34,7 +35,7 @@ const HeroSearchForm: React.FC<HeroSearchFormProps> = ({ className, currentTab, 
     const renderForm = () => {
         switch (initialTab) {
             case "Transfers":
-                // Return TransferSearchForm component or null
+                // return <TransferSearchForm haveDefaultValue={null} sendToParent={()=>{}} checkUpdates={()=>{}} btnType=""/>;
                 break;
             case "Tours":
                 // Return ExperiencesSearchForm component or null
