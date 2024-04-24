@@ -3,7 +3,7 @@ import React, { FC, useEffect } from "react";
 import Glide from "@glidejs/glide";
 import NcImage from "./NcImage/NcImage";
 import NextPrev from "./NextPrev/NextPrev";
-import ncNanoId from "@/utails/ncNanoId";
+
 
 interface GallerySliderProps {
   className?: string;
@@ -56,7 +56,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
                   <NcImage
                     src={item}
                     className=""
-                    alt={`car Image ${index}`}
+                    alt={`${index}`}
                     height="auto"
                     id={`car Image ${index}`}
                   />

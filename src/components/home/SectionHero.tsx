@@ -25,7 +25,7 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           <Image
             className="w-full"
             src="/hero-right.png"
-            alt="My Image"
+            alt="MyImage"
             priority={true}
             width={500} 
             height={500}
