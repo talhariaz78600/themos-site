@@ -21,7 +21,7 @@ interface Location {
 
 interface TransferSearchFormProps {
   haveDefaultValue: {
-    date: string;
+    date: Moment;
     origin: Location;
     destination: Location;
     guests: number;
@@ -39,7 +39,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
   sendToParent,
   checkUpdates,
 }) => {
-  const [dateValue, setdateValue] = useState<string | null>(null);
+  const [dateValue, setdateValue] = useState<Moment | null>(null);
   const [pickUpInputValue, setPickUpInputValue] = useState<Location | null>(
     null
   );
@@ -56,7 +56,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
   useEffect(() => {
     checkButton();
     if (btnType === "filter" && haveDefaultValue) {
-      setdateValue(haveDefaultValue.date);
+      setdateValue(moment(haveDefaultValue.date));
       setPickUpInputValue(haveDefaultValue.origin);
       setDropOffInputValue(haveDefaultValue.destination);
       setGuestValue(haveDefaultValue.guests);
@@ -96,16 +96,19 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
     if (!haveDefaultValue || !btnType) {
       return (
         <div>
+          <FetchTransferPricesButton
+            sendDataToParent={click}
+            origin={pickUpInputValue}
+            destination={dropOffInputValue}
+            date={dateValue}
+            guests={guestValue}
+            onlyGuestsChanged={false}
+            checkUpdates={checkUpdates}
+            btnType={btnType}
+            setIsModalOpen={setIsModalOpen}
+            label=""
+          />
         </div>
-        // <FetchTransferPricesButton
-        //   sendDataToParent={click}
-        //   origin={pickUpInputValue}
-        //   destination={dropOffInputValue}
-        //   date={dateValue}
-        //   guests={guestValue}
-        //   btnType={btnType}
-        //   setIsModalOpen={setIsModalOpen}
-        // />
       );
     } else if (
       (haveDefaultValue.guests === guestValue &&
@@ -180,14 +183,14 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
           Id="transfer2"
         />
 
-        {/* <ExperiencesDateSingleInput
+        <ExperiencesDateSingleInput
           defaultValue={dateValue}
           onChange={(date) => setdateValue(date)}
           defaultFocus={dateFocused}
           onFocusChange={(focus) => {
             setDateFocused(focus);
           }}
-        /> */}
+        />
 
         <GuestsInput
           defaultValue={guestValue}

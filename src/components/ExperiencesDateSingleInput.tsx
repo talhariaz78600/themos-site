@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { SingleDatePicker, AnchorDirectionShape } from "react-dates";
+import DatePicker from 'react-date-picker';
+import 'react-date-picker/dist/DatePicker.css';
+import 'react-calendar/dist/Calendar.css';
 import moment, { Moment } from "moment";
 // import { useWindowSize } from 'use-window-size';
 
@@ -9,7 +11,7 @@ interface ExperiencesDateSingleInputProps {
   defaultFocus?: boolean;
   onFocusChange?: (focused: boolean) => void;
   className?: string;
-  anchorDirection?: AnchorDirectionShape;
+
 }
 
 const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
@@ -17,14 +19,34 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
   onChange,
   defaultFocus = false,
   onFocusChange,
-  anchorDirection,
+  // anchorDirection,
   className = "",
 }) => {
   const [focusedInput, setFocusedInput] = useState<boolean>(defaultFocus);
   const [startDate, setStartDate] = useState<Moment | null>(defaultValue);
 
-//   const windowSize = useWindowSize();
-
+  //   const windowSize = useWindowSize();
+  const handleDateChange = (date: any) => {
+    if (date instanceof Array && date.length === 2) {
+      // Handle range selection if necessary
+      const [start, end] = date;
+      // Convert to Moment objects if necessary
+      const momentStart = moment(start);
+      const momentEnd = moment(end);
+      // Proceed with your logic
+      setStartDate(momentStart);
+      // If you also need to handle end date:
+      // setEndDate(momentEnd);
+    } else if (date instanceof Date) {
+      // Convert to Moment object if necessary
+      const momentDate = moment(date);
+      // Proceed with your logic
+      setStartDate(momentDate);
+    } else {
+      // Handle null or other cases if needed
+      setStartDate(null);
+    }
+  };
   useEffect(() => {
     setStartDate(defaultValue);
   }, [defaultValue]);
@@ -50,9 +72,8 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
     return (
       <div
         onClick={handleInputFocus}
-        className={`flex w-full relative items-center space-x-3 cursor-pointer ${
-          focused ? "nc-hero-field-focused" : ""
-        }`}
+        className={`flex cursor-pointer ${focused ? "nc-hero-field-focused" : ""
+          }`}
       >
         <div className="text-neutral-300 dark:text-neutral-400">
           <svg
@@ -89,43 +110,38 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
 
   return (
     <div
-      className={`ExperiencesDateSingleInput relative flex ${className} ${
-        !!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
-      }`}
+      className={`ExperiencesDateSingleInput flex ${className} ${!!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
+        }`}
     >
-      <div className="flex relative inset-0 items-center">
-        <div className="absolute mx-1 px-0 md:mx-6 md:px-2">
-          <label htmlFor="date-picker" className="hidden">
-            Enter a date:
-          </label>
-          <input
-            type="date"
-            id="date-picker"
-            className="hidden"
-            value={startDate ? startDate.format("YYYY-MM-DD") : ""}
-            onChange={(e) => setStartDate(moment(e.target.value, "YYYY-MM-DD"))}
-          />
+      <div className="flex">
+        <div className=" mt-2 mx-2"> 
           <label htmlFor="single-date-picker" className="hidden">
             Enter a date:
           </label>
-          <SingleDatePicker
-            date={startDate}
-            onDateChange={(date) => setStartDate(date)}
-            focused={focusedInput}
-            onFocusChange={handleDateFocusChange}
-            id="single-date-picker"
-            placeholder="Date Picker"
-            numberOfMonths={1}
-            showClearDate={false}
-            hideKeyboardShortcutsPanel
-            noBorder
-            ariaLabel="date"
-          />
+
+          <div>
+            <DatePicker
+              value={startDate ? startDate.toDate() : null}
+              onChange={handleDateChange}
+              id="single-date-picker"
+              format="yyyy-MM-dd"
+              minDate={new Date()}
+              calendarAriaLabel="Toggle calendar"
+              clearAriaLabel="Clear value"
+              calendarIcon={<CustomIcon />}
+            />
+
+          </div>
+
+
         </div>
         {renderInputCheckInDate()}
       </div>
     </div>
   );
 };
+const CustomIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 19 19" stroke="white" stroke-width="2" className="react-date-picker__calendar-button__icon react-date-picker__button__icon"><rect fill="none" height="15" width="15" x="2" y="2"></rect><line x1="6" x2="6" y1="0" y2="4"></line><line x1="13" x2="13" y1="0" y2="4"></line></svg>
+);
 
 export default ExperiencesDateSingleInput;

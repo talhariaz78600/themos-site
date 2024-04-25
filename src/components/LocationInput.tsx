@@ -140,7 +140,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                         <span
                             onClick={() => handleSelectLocation(item)}
                             key={item.id}
-                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-700 dark:hover:bg-neutral-700 cursor-pointer"
+                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-700 hover:bg-neutral-700 cursor-pointer"
                         >
                             <div className="flex gap-2 items-center">
                                 <div>
@@ -167,8 +167,9 @@ const LocationInput: React.FC<LocationInputProps> = ({
                 id={`scroll-anc-location${Id}`}
                 className={`flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  ${showPopover ? "shadow-2xl rounded-full dark:bg-neutral-800" : ""}`}
             >
-                <div className="text-neutral-300 dark:text-neutral-400">
-                    <svg
+                <div className="text-neutral-400 dark:text-neutral-400">
+                <i className="fa-solid fa-location-dot text-white text-[22px]"></i>
+                    {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="nc-icon-field"
                         fill="none"
@@ -177,20 +178,20 @@ const LocationInput: React.FC<LocationInputProps> = ({
                     >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
+                    </svg> */}
                 </div>
                 <div className="flex-grow">
                     <label className="hidden" htmlFor={`location-input ${Id}`} title={value == null ? "Location" : value.title}>
                         {"location-input" + (value?.title || "")}
                     </label>
-                    <input className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-800 dark:placeholder-neutral-200 truncate`} placeholder={placeHolder} value={value == null ? "" : value.title} onChange={handleChange} ref={inputRef} id={`location-input ${Id}`} />
+                    <input className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-200  dark:placeholder-neutral-200 truncate`} placeholder={placeHolder} value={value == null ? "" : value.title} onChange={handleChange} ref={inputRef} id={`location-input ${Id}`} />
                     <span className="block mt-0.5 text-sm text-neutral-400 font-light ">
                         <span className="line-clamp-1">{value ? placeHolder : desc}</span>
                     </span>
                     {value && showPopover && <ClearDataButton onClick={() => setValue(null)} />}
                     {searching && showPopover && (
                         <span className="absolute w-5 h-5 lg:w-6 lg:h-6 text-sm bg-transparent rounded-full flex items-center justify-center right-1 lg:right-3 top-1/2 transform -translate-y-1/2">
-                            <svg className="animate-spin h-8 w-8  absolute border-indigo-600 border-t-2 dark:border-t-[3px] rounded-full" viewBox="0 0 24 24" />
+                            <svg className="animate-spin h-8 w-8  absolute border-indigo-600 border-t-[3px] rounded-full" viewBox="0 0 24 24" />
                         </span>
                     )}
                 </div>

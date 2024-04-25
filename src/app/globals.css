@@ -200,3 +200,80 @@ body {
 iframe.skiptranslate {
   display: none !important;
 }
+.VIpgJd-ZVi9od-aZ2wEe{
+  display: none !important;
+}
+.VIpgJd-ZVi9od-aZ2wEe-wOHMyf{
+  display: none !important;
+}
+#goog-gt-original-text{
+  display: none !important;
+}
+.VIpgJd-yAWNEb-hvhgNd{
+  display: none !important;
+}
+/* Dark mode styles */
+.react-date-picker__wrapper {
+  background-color: transparent; /* Adjust background color */
+}
+
+.react-date-picker__inputGroup {
+  color: #fff; /* Adjust text color */
+}
+
+.react-date-picker__calendar {
+  background-color: #444; /* Adjust calendar background color */
+}
+
+.react-calendar__navigation button,
+.react-calendar__tile,
+.react-calendar__tile--active {
+  color: #100808; /* Adjust navigation and tile text color */
+}
+
+.react-calendar__tile--now {
+  background: #666; /* Adjust current date background color */
+}
+.react-date-picker__clear-button__icon{
+  display: none !important;
+}
+.react-date-picker__inputGroup__input{
+  display: none !important;
+}
+.react-date-picker__inputGroup__divider{
+  display: none !important;
+}
+.react-date-picker__inputGroup__leadingZero{
+  display: none !important;
+}
+.react-date-picker__calendar-button__icon {
+  fill: white !important;
+}
+.react-date-picker__wrapper{
+  border: none !important;
+}
+.react-calendar__tile--active {
+  background: #f4f4f4; /* Adjust active date background color */
+}
+
+.react-calendar__tile--hasActive {
+  background: rgba(0, 123, 255, 0.5); /* Adjust hover background color */
+}
+.react-date-picker__inputGroup{
+  display: none !important;
+}
+.react-calendar__tile--hover {
+  background: rgba(255, 255, 255, 0.1); /* Adjust hover background color */
+}
+
+.react-calendar__tile--rangeStart,
+.react-calendar__tile--rangeEnd,
+.react-calendar__tile--rangeInner {
+  background: rgba(0, 123, 255, 0.2); /* Adjust range selection background color */
+}
+.react-calendar{
+  background: rgba(0, 123, 255, 0.2);
+}
+.react-date-picker__wrapper{
+  border: none;
+}

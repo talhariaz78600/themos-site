@@ -35,7 +35,7 @@ const HeroSearchForm: React.FC<HeroSearchFormProps> = ({ className, currentTab, 
     const renderForm = () => {
         switch (initialTab) {
             case "Transfers":
-                // return <TransferSearchForm haveDefaultValue={null} sendToParent={()=>{}} checkUpdates={()=>{}} btnType=""/>;
+                return <TransferSearchForm haveDefaultValue={null} sendToParent={()=>{}} checkUpdates={()=>{}} btnType=""/>;
                 break;
             case "Tours":
                 // Return ExperiencesSearchForm component or null

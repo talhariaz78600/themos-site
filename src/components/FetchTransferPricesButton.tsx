@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import axios from "axios";
 import { REACT_APP_REST_RESOURCE_BASE_END_POINT } from "../components/constants/apiEndpoints";
 import * as generalMethod from "./GeneralMethods";
-import { useRouter } from "next/router";
-
+// import { useRouter } from "next/router";
+import moment, { Moment } from "moment";
 interface FetchTransferPricesButtonProps {
     sendDataToParent: () => void;
     origin: { id: string; title: string; subtitle: string } | null;
     destination: { id: string; title: string; subtitle: string } | null;
-    date: string | null;
+    date: Moment | null;
     guests: number;
     onlyGuestsChanged: boolean;
     label?: string;
@@ -30,10 +30,11 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
     setIsModalOpen,
 }) => {
     const [loading, setLoading] = useState(false);
-    const router = useRouter();
+    // const router = useRouter();
 
     const buttonClick = () => {
         setLoading(true);
+        console.log(origin,destination,date);
         if (!origin || !destination || !date) {
             sendDataToParent();
             setLoading(false);
@@ -56,6 +57,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                     headers: { "Content-Type": "application/json" },
                 })
                 .then((response) => {
+                    console.log(response);
                     generalMethod.saveRouteAndPrices(origin, destination, "", date, guests, response);
                     if (btnType) {
                         checkUpdates();
@@ -71,18 +73,18 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
 
     return (
         <>
-            {label ? (
+            {label!="" ? (
                 <button
                     onClick={buttonClick}
                     type="button"
-                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-primary-6000 hover:bg-primary-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
+                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-6000 hover:bg-blue-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
                 >
                     {!loading ? (
                         <span>{label}</span>
                     ) : (
                         <svg
                             role="status"
-                            className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-400 fill-primary-6000"
+                            className="w-6 h-6 text-gray-400 animate-spin dark:text-gray-400 fill-primary-6000"
                             viewBox="0 0 100 101"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -102,7 +104,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 <button
                     onClick={buttonClick}
                     type="button"
-                    className="h-14 md:h-16 w-full md:w-16 rounded-full bg-primary-6000 hover:bg-primary-700 flex items-center justify-center text-neutral-50 focus:outline-none"
+                    className="h-14 md:h-16 w-full md:w-16 rounded-full bg-blue-700 hover:bg-blue-900 flex items-center justify-center text-neutral-50 focus:outline-none"
                 >
                     <span className="mr-3 md:hidden">Search</span>
                     {!loading ? (

@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
-
+import moment, { Moment } from "moment";
 export const getRouteDetailsAndPrice = () => {
     const router = useRouter();
     let routeDetailsAndPrices = JSON.parse(localStorage.getItem('routeDetailsAndPrices') || 'null');
@@ -53,7 +53,7 @@ export const saveRouteAndPrices = (
     origin: { id: string; title: string; subtitle: string },
     destination: { id: string; title: string; subtitle: string },
     tourTitle: string,
-    date: string,
+    date: Moment,
     guests: number,
     apiResponse: { data: any }
 ) => {
