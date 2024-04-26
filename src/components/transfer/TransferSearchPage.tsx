@@ -198,7 +198,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
             setGuestValue(data);
           }}
         />
-        <div className="px-4 py-4 lg:py-0 mr-6">{checkButton()}</div>
+        <div className="px-4 py-5 lg:py-0 mr-6">{checkButton()}</div>
         <ModalDialog
           isOpen={isModalOpen}
           setIsOpen={setIsModalOpen}

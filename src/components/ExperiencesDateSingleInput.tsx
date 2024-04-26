@@ -46,6 +46,9 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
       // Handle null or other cases if needed
       setStartDate(null);
     }
+    if(date){
+      handleDateFocusChange(true)
+    }
   };
   useEffect(() => {
     setStartDate(defaultValue);
@@ -61,9 +64,13 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
     }
   }, [startDate]);
 
-  const handleDateFocusChange = ({ focused }: { focused: boolean }) => {
+  const handleDateFocusChange = (  focused: boolean ) => {
     setFocusedInput(focused);
     onFocusChange && onFocusChange(focused);
+  };
+  const shouldCloseCalendar = () => {
+  
+    return  focusedInput===true;
   };
 
   const renderInputCheckInDate = () => {
@@ -110,7 +117,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
 
   return (
     <div
-      className={`ExperiencesDateSingleInput flex ${className} ${!!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
+      className={`ExperiencesDateSingleInput py-5 lg:mx-5  flex ${className} ${!!focusedInput ? "nc-date-focusedInput" : "nc-date-not-focusedInput"
         }`}
     >
       <div className="flex">
@@ -129,6 +136,12 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
               calendarAriaLabel="Toggle calendar"
               clearAriaLabel="Clear value"
               calendarIcon={<CustomIcon />}
+              onFocus={(focus:any) => {
+                handleDateFocusChange(focus);
+              }}
+              // shouldCloseCalendar={shouldCloseCalendar}
+              openCalendarOnFocus={true}
+              // isOpen
             />
 
           </div>

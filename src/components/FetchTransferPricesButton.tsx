@@ -77,7 +77,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 <button
                     onClick={buttonClick}
                     type="button"
-                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-6000 hover:bg-blue-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
+                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-6000 mx-5 hover:bg-blue-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
                 >
                     {!loading ? (
                         <span>{label}</span>
@@ -104,7 +104,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 <button
                     onClick={buttonClick}
                     type="button"
-                    className="h-14 md:h-16 w-full md:w-16 rounded-full bg-blue-700 hover:bg-blue-900 flex items-center justify-center text-neutral-50 focus:outline-none"
+                    className="h-14 mx-3 md:h-16 w-full md:w-16 rounded-full bg-blue-700 hover:bg-blue-900 flex items-center justify-center text-neutral-50 focus:outline-none"
                 >
                     <span className="mr-3 md:hidden">Search</span>
                     {!loading ? (

@@ -165,10 +165,9 @@ const LocationInput: React.FC<LocationInputProps> = ({
             <div
                 onClick={handlePopover}
                 id={`scroll-anc-location${Id}`}
-                className={`flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  ${showPopover ? "shadow-2xl rounded-full dark:bg-neutral-800" : ""}`}
-            >
+                className="flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  shadow-2xl rounded-full hover:bg-neutral-800 px-2 py-4"            >
                 <div className="text-neutral-400 dark:text-neutral-400">
-                <i className="fa-solid fa-location-dot text-white text-[22px]"></i>
+                <i className="fa-solid fa-location-dot text-white text-[22px] px-3"></i>
                     {/* <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="nc-icon-field"
