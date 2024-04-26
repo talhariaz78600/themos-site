@@ -183,7 +183,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                     <label className="hidden" htmlFor={`location-input ${Id}`} title={value == null ? "Location" : value.title}>
                         {"location-input" + (value?.title || "")}
                     </label>
-                    <input className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-200  dark:placeholder-neutral-200 truncate`} placeholder={placeHolder} value={value == null ? "" : value.title} onChange={handleChange} ref={inputRef} id={`location-input ${Id}`} />
+                    <input readOnly className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-200  dark:placeholder-neutral-200 truncate`} placeholder={placeHolder} value={value == null ? "" : value.title} onChange={handleChange} ref={inputRef} id={`location-input ${Id}`} />
                     <span className="block mt-0.5 text-sm text-neutral-400 font-light ">
                         <span className="line-clamp-1">{value ? placeHolder : desc}</span>
                     </span>
