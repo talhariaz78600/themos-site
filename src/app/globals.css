@@ -284,6 +284,3 @@ iframe.skiptranslate {
   padding-right: 1rem;
   width: 100%;
 }
-body{
-  background-color: rgba(var(--c-neutral-900), var(--tw-bg-opacity));
-}
