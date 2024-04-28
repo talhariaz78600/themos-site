@@ -10,18 +10,18 @@ const DEMO_DATA: StayDataType[] = DEMO_STAY_LISTINGS.filter((_, i) => i < 8);
 
 //
 export interface SectionGridFeaturePlacesProps {
-  stayListings?: StayDataType[];
+  stayListings?: any[];
   gridClass?: string;
   heading?: ReactNode;
   subHeading?: ReactNode;
   headingIsCenter?: boolean;
   tabs?: string[];
 }
-console.log(DEMO_DATA);
+// console.log(DEMO_DATA);
 
 //todo Fix the spinner is always true > and the Tabs have no default
 const SectionCarouselFleet: FC<SectionGridFeaturePlacesProps> = ({
-  stayListings = DEMO_DATA,
+  stayListings=[],
   gridClass = "",
   heading = "Tours & Activities",
   subHeading = "Popular places to stay that Chisfis recommends for you",
@@ -38,7 +38,7 @@ const SectionCarouselFleet: FC<SectionGridFeaturePlacesProps> = ({
       <div
         className={`grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ${gridClass}`}
       >
-        {DEMO_DATA.map((stay) => renderCard(stay))}
+        {stayListings.map((stay) => renderCard(stay))}
       </div>
     </div>
   );
