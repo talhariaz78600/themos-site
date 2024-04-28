@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleTranslate } from "@/components/googleTranslate/Translate";
+// import { GoogleTranslate } from "@/components/googleTranslate/Translate";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
@@ -20,13 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-neutral-900 text-white`}>
-        <GoogleTranslate/>
+        
         {children}
         <Footer />
         {/* <script src="https://kit.fontawesome.com/94794741f1.js"></script> */}
         <Script
                 id="google-translate-script"
-                strategy="afterInteractive" // Load after interactive content
+                // strategy="afterInteractive" // Load after interactive content
                 src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
             />
       </body>

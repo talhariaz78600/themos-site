@@ -38,7 +38,7 @@ const NextPrev: FC<NextPrevProps> = ({
           title="Prev"
           data-glide-dir="<"
         >
-        <i className="fa-solid fa-arrow-left"></i>
+        <i className="fa-solid fa-chevron-left"></i>
         </button>
       )}
       {!onlyPrev && (
@@ -48,7 +48,7 @@ const NextPrev: FC<NextPrevProps> = ({
           title="Next"
           data-glide-dir=">"
         >
-          <i className="fa-solid fa-arrow-right"></i>
+         <i className="fa-solid fa-chevron-right"></i>
         </button>
       )}
     </div>

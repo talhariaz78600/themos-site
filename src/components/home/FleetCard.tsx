@@ -1,3 +1,4 @@
+
 import React, { FC } from "react";
 import GallerySlider from "../GallerySlider";
 import { DEMO_STAY_LISTINGS } from "../../data/listings"
@@ -5,6 +6,7 @@ import { StayDataType } from "../../data/types";
 // import { useRouter } from "next/router";
 import SaleOffBadge from "../SaleOffBadge/SaleOffBadge";
 import Badge from "../Badge/Badge";
+import Modal from "../Model";
 
 interface StayCardProps {
   className?: string;
@@ -20,7 +22,7 @@ const FleetCard: FC<StayCardProps> = ({
   data = DEMO_DATA,
   ratioClass,
 }) => {
-//   const router = useRouter();
+  //   const router = useRouter();
 
   const {
     galleryImgs,
@@ -38,12 +40,13 @@ const FleetCard: FC<StayCardProps> = ({
     id,
   } = data;
 
-//   const handleCardClickEvent = (e: React.MouseEvent<HTMLElement>) => {
-//     const target = e.target as HTMLElement;
-//     if (target.tagName !== "I") {
-//     //   router.push(href);
-//     }
-//   };
+  //   const handleCardClickEvent = (e: React.MouseEvent<HTMLElement>) => {
+  //     const target = e.target as HTMLElement;
+  //     if (target.tagName !== "I") {
+  //     //   router.push(href);
+  //     }
+  //   };
+// console.log(galleryImgs)
 
   const renderSliderGallery = () => {
     return (
@@ -65,9 +68,8 @@ const FleetCard: FC<StayCardProps> = ({
           <div className="flex items-center space-x-2">
             {isAds && <Badge name="ADS" color="green" />}
             <h2
-              className={` font-medium capitalize ${
-                size === "default" ? "text-lg" : "text-base"
-              }`}
+              className={` font-medium capitalize ${size === "default" ? "text-lg" : "text-base"
+                }`}
             >
               {title}
             </h2>
@@ -92,10 +94,13 @@ const FleetCard: FC<StayCardProps> = ({
                   strokeLinejoin="round"
                   strokeWidth={1.5}
                   d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
+                />  
               </svg>
             )}
             <span className="">{title}</span>
+          </div>
+          <div className="flex items-start">
+            <Modal galleryImgs={galleryImgs} key={id} />
           </div>
         </div>
       </div>
@@ -106,7 +111,7 @@ const FleetCard: FC<StayCardProps> = ({
     <div
       className={`cursor-pointer nc-StayCard group relative bg-neutral-900 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow ${className}`}
       data-nc-id={`FleetCard${id}`}
-      
+
     >
       {renderSliderGallery()}
       {renderContent()}
