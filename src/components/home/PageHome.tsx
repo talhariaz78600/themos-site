@@ -8,8 +8,15 @@ import axios from 'axios';
 const  PageHome =async () => {
     const fetchData = async () => {
         try {
-            const response = await axios.get("https://endless-primate-great.ngrok-free.app/carousel-fleets");
-            const fleetData = response.data.map((vehicle:any) => ({
+            const res = await fetch("https://endless-primate-great.ngrok-free.app/carousel-fleets",{
+                method: "GET",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                cache: 'force-cache'
+              });
+              const response=await res.json();
+            const fleetData = response.map((vehicle:any) => ({
                 title: vehicle.VehicleCategoryName,
                 galleryImgs: vehicle.Images.map((image:any) => image.url),
                 OrderInCarousel: vehicle.OrderInCarousel,

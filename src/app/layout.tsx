@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-neutral-900 text-white`}>
+      <body className={`${inter.className} bg-[#101726] text-white`}>
         
         {children}
         <Footer />
@@ -29,6 +29,7 @@ export default function RootLayout({
                 // strategy="afterInteractive" // Load after interactive content
                 src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
             />
+            
       </body>
     </html>
   );

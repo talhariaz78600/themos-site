@@ -32,6 +32,7 @@
     "react-uuid": "^2.0.0",
     "react-with-styles": "^5.0.0",
     "rsuite": "^5.59.2",
+    "tailwind-datepicker-react": "^1.4.3",
     "tw-elements": "^2.0.0",
     "use-window-size": "^0.0.1",
     "uuidv4": "^6.2.13"

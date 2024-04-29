@@ -16,7 +16,7 @@ export interface PageAboutProps {
 const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
   return (
     <div
-      className={`nc-PageAbout bg-neutral-900 overflow-hidden mx-4 relative ${className}`}
+      className={`nc-PageAbout overflow-hidden relative ${className}`}
       data-nc-id="PageAbout"
     >
 
@@ -33,7 +33,7 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
 
         <SectionFounder />
         <div className="relative py-16">
-          {/* <BackgroundSection /> */}
+        <div className="nc-BackgroundSection absolute inset-y-0 w-screen xl:max-w-[1340px] 2xl:max-w-screen-2xl left-1/2 transform -translate-x-1/2 xl:rounded-[40px] z-0 bg-black bg-opacity-20 " data-nc-id="BackgroundSection"></div>
           <SectionClientSay />
         </div>
 
