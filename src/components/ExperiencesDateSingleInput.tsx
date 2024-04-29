@@ -14,9 +14,8 @@ interface ExperiencesDateSingleInputProps {
 
 }
 const isValidDate = (current:any) => {
-  const minDate = new Date(); // Set your minimum date here
-  // minDate.setHours(0, 0, 0, 0); // Set minimum time to start of day for accurate comparison
-  return current.isSameOrAfter(minDate, 'day'); // Check if current date is same or after minDate
+  const minDate = new Date(); 
+  return current.isSameOrAfter(minDate, 'day');
 }
 
 const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
