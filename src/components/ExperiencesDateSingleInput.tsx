@@ -1,7 +1,5 @@
+
 import React, { useEffect, useState } from "react";
-import DatePicker from 'react-date-picker';
-// import 'react-date-picker/dist/DatePicker.css';
-// import 'react-calendar/dist/Calendar.css';
 import moment, { Moment } from "moment";
 import Datetime from 'react-datetime';
 // import "react-datetime/css/react-datetime.css";
@@ -17,7 +15,7 @@ interface ExperiencesDateSingleInputProps {
 }
 const isValidDate = (current:any) => {
   const minDate = new Date(); // Set your minimum date here
-  minDate.setHours(0, 0, 0, 0); // Set minimum time to start of day for accurate comparison
+  // minDate.setHours(0, 0, 0, 0); // Set minimum time to start of day for accurate comparison
   return current.isSameOrAfter(minDate, 'day'); // Check if current date is same or after minDate
 }
 
@@ -34,7 +32,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
 
   //   const windowSize = useWindowSize();
   const handleDateChange = (dat: any) => {
-    console.log(dat);
+    console.log(dat)
     const date=dat._d;
     console.log(date);
     if (date instanceof Array && date.length === 2) {
@@ -156,7 +154,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
               openCalendarOnFocus={true}
               // isOpen
             /> */}
-            <Datetime  dateFormat="YYYY-MM-DD" open={focusedInput}    onChange={handleDateChange}  isValidDate={isValidDate} />
+            <Datetime  dateFormat="YYYY-MM-DD" open={focusedInput}    onChange={handleDateChange}  isValidDate={isValidDate}  timeFormat={false} />
             <i className="fa-solid fa-calendar-days text-white text-2xl px-2 cursor-pointer" onClick={handleInputFocus}></i>
 
           </div>
