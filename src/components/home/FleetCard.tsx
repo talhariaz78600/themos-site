@@ -109,7 +109,7 @@ const FleetCard: FC<StayCardProps> = ({
 
   return (
     <div
-      className={`cursor-pointer nc-StayCard group relative bg-neutral-900 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow ${className}`}
+      className={`cursor-pointer nc-StayCard group relative bg-[#111828] dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 rounded-2xl overflow-hidden hover:shadow-xl transition-shadow ${className}`}
       data-nc-id={`FleetCard${id}`}
 
     >

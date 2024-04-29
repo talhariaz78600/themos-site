@@ -152,7 +152,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
 
   const renderForm = () => {
     return (
-      <form className="w-full text-white relative mt-4 md:mt-8 flex flex-col md:flex-row md:items-center rounded-3xl md:rounded-full shadow-2xl bg-neutral-900 divide-y divide-neutral-700  dark:divide-neutral-700  md:divide-y-0">
+      <form className="w-full text-white relative mt-4 md:mt-8 flex flex-col md:flex-row md:items-center rounded-3xl md:rounded-full shadow-2xl bg-[#111828] divide-y divide-neutral-700  dark:divide-neutral-700  md:divide-y-0">
         <LocationInput
           placeHolder={!switchInput ? "Pick-Up" : "Drop-Off"}
           desc="Athens Airport, Piraeus Port Etc.?"

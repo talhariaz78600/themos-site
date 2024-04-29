@@ -22,7 +22,7 @@ export default function Modal({ galleryImgs }: ModalProps) {
       {galleryImgs ? (
         <div
           onClick={() => setShowModal(true)}
-          className="absolute hidden cursor-pointer	bg-neutral-700 md:flex md:items-center md:justify-center right-2 top-2 px-2 py-2 rounded-xl z-0 hover:opacity-75"
+          className="absolute hidden cursor-pointer	bg-[#1d2938] md:flex md:items-center md:justify-center right-2 top-2 px-2 py-2 rounded-xl z-0 hover:opacity-75"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

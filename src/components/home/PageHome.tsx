@@ -4,7 +4,6 @@ import SectionHero from './SectionHero';
 import SectionHowItWork from '../SectionHowItWork/SectionHowItWork';
 import SectionOurFeatures from '../SectionOurFeatures/SectionOurFeatures';
 import SectionCarouselFleet from './SectionCarouselFleet';
-import axios from 'axios';
 const  PageHome =async () => {
     const fetchData = async () => {
         try {

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from 'react-date-picker';
-import 'react-date-picker/dist/DatePicker.css';
-import 'react-calendar/dist/Calendar.css';
+// import 'react-date-picker/dist/DatePicker.css';
+// import 'react-calendar/dist/Calendar.css';
 import moment, { Moment } from "moment";
+import Datetime from 'react-datetime';
+// import "react-datetime/css/react-datetime.css";
 // import { useWindowSize } from 'use-window-size';
 
 interface ExperiencesDateSingleInputProps {
@@ -12,6 +14,11 @@ interface ExperiencesDateSingleInputProps {
   onFocusChange?: (focused: boolean) => void;
   className?: string;
 
+}
+const isValidDate = (current:any) => {
+  const minDate = new Date(); // Set your minimum date here
+  minDate.setHours(0, 0, 0, 0); // Set minimum time to start of day for accurate comparison
+  return current.isSameOrAfter(minDate, 'day'); // Check if current date is same or after minDate
 }
 
 const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
@@ -26,7 +33,10 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
   const [startDate, setStartDate] = useState<Moment | null>(defaultValue);
 
   //   const windowSize = useWindowSize();
-  const handleDateChange = (date: any) => {
+  const handleDateChange = (dat: any) => {
+    console.log(dat);
+    const date=dat._d;
+    console.log(date);
     if (date instanceof Array && date.length === 2) {
       // Handle range selection if necessary
       const [start, end] = date;
@@ -43,11 +53,14 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
       // Proceed with your logic
       setStartDate(momentDate);
     } else {
-      // Handle null or other cases if needed
-      setStartDate(null);
+      const [start, end] = date;
+      const momentStart = moment(start);
+
+      // Proceed with your logic
+      setStartDate(momentStart);
     }
     if(date){
-      handleDateFocusChange(true)
+      handleDateFocusChange(false)
     }
   };
   useEffect(() => {
@@ -127,7 +140,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
           </label>
 
           <div>
-            <DatePicker
+            {/* <DatePicker
               value={startDate ? startDate.toDate() : null}
               onChange={handleDateChange}
               id="single-date-picker"
@@ -142,7 +155,9 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
               // shouldCloseCalendar={shouldCloseCalendar}
               openCalendarOnFocus={true}
               // isOpen
-            />
+            /> */}
+            <Datetime  dateFormat="YYYY-MM-DD" open={focusedInput}    onChange={handleDateChange}  isValidDate={isValidDate} />
+            <i className="fa-solid fa-calendar-days text-white text-2xl px-2 cursor-pointer" onClick={handleInputFocus}></i>
 
           </div>
 
