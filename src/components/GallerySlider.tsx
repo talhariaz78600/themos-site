@@ -1,5 +1,5 @@
 "use client"
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useRef } from "react";
 import Glide from "@glidejs/glide";
 import NcImage from "./NcImage/NcImage";
 import NextPrev from "./NextPrev/NextPrev";
@@ -19,26 +19,45 @@ const GallerySlider: FC<GallerySliderProps> = ({
   uniqueID = "string",
 }) => {
   const UNIQUE_CLASS = uniqueID || "nc_glide2_gallery_" + "hddqw123248948928488";
-
+  const dotsRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (document.querySelector(`.${UNIQUE_CLASS}`)) {
-      new Glide(`.${UNIQUE_CLASS}`, {
-        perView: 1,
-        autoplay: 5000
-      }).mount();
-    }
-  }, [UNIQUE_CLASS,galleryImgs]);
+    const glide = new Glide(`.${UNIQUE_CLASS}`, {
+      perView: 1,
+      autoplay: 5000
+    });
+
+    glide.on("run.before", () => {
+      // Add blur effect to dots section when slider starts transitioning
+      if (dotsRef.current) {
+        dotsRef.current.classList.add("blur");
+      }
+    });
+
+    glide.on("run.after", () => {
+      // Remove blur effect from dots section when slider finishes transitioning
+      if (dotsRef.current) {
+        dotsRef.current.classList.remove("blur");
+      }
+    });
+
+    glide.mount();
+
+    return () => {
+      glide.destroy();
+    };
+  }, [UNIQUE_CLASS, galleryImgs]);
   const renderDots = () => {
     return (
       <div
+      ref={dotsRef}
         className="glide__bullets flex items-center justify-center absolute bottom-2 left-1/2 transform -translate-x-1/2 space-x-1.5"
         data-glide-el="controls[nav]"
       >
-        {galleryImgs.map((_,i) => (
+        {galleryImgs.map((_, i) => (
           <button
             className="glide__bullet w-1.5 h-1.5 rounded-full bg-neutral-300"
             key={i}
-            data-glide-dir={`${i}`}
+            data-glide-dir={`=${i}`}
           />
         ))}
       </div>
