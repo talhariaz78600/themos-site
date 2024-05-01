@@ -74,7 +74,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
                 <div className={ratioClass}>
                   <NcImage
                     src={item}
-                    className=""
+                    className="h-[200px]"
                     alt={`${index}`}
                     height="auto"
                     id={`car Image ${index}`}
