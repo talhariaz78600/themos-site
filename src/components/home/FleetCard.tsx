@@ -67,12 +67,12 @@ const FleetCard: FC<StayCardProps> = ({
         <div className="space-y-2">
           <div className="flex items-center space-x-2">
             {isAds && <Badge name="ADS" color="green" />}
-            <h2
+            {/* <h2
               className={` font-medium capitalize ${size === "default" ? "text-lg" : "text-base"
                 }`}
             >
               {title}
-            </h2>
+            </h2> */}
           </div>
           <div className="flex items-center text-neutral-400 dark:text-neutral-400 text-sm space-x-2">
             {size === "default" && (

@@ -78,14 +78,14 @@ const Footer: React.FC = () => {
     const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
         return (
             <div key={index} className="text-sm ref-footer px-2">
-                <p className="font-semibold text-lg md:text-xl mb-5 text-neutral-200 leading-relaxed">
+                <p className="font-semibold  mb-5 text-neutral-200 leading-relaxed">
                     {menu.title}
                 </p>
                     <ul>
 
                     {menu.menus.map((item, index) => (
                         <Link key={index}   href={item.href}>
-                            <li className="text-base text-neutral-300 hover:text-black hover:text-white">{item.label}</li>
+                            <li className="my-3 text-sm text-neutral-300 hover:text-black hover:text-white">{item.label}</li>
                         </Link>
                     ))} 
                     </ul>
@@ -106,10 +106,10 @@ const Footer: React.FC = () => {
                 </div>
                 {widgetMenus.map(renderWidgetMenuItem)}
             </div>
-            <p className="text-center text-white pt-8 font-bold text-lg md:text-xl leading-relaxed">
+            <p className="text-center text-white pt-8  leading-relaxed">
                 Member Of The Greek Tourism Organization
             </p>
-            <p className="text-center text-white font-bold text-lg md:text-xl leading-relaxed">Registration Number: O206E81000524201</p>
+            <p className="text-center text-white mt-2  leading-relaxed">Registration Number: O206E81000524201</p>
         </div>
     );
 };

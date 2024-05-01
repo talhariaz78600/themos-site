@@ -154,7 +154,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
               // isOpen
             /> */}
             <Datetime  dateFormat="YYYY-MM-DD" open={focusedInput}    onChange={handleDateChange}  isValidDate={isValidDate}  timeFormat={false} />
-            <i className="fa-solid fa-calendar-days text-white text-2xl px-2 cursor-pointer" onClick={handleInputFocus}></i>
+            <i className="fa-solid fa-calendar-days text-neutral-400 text-xl px-2 cursor-pointer" onClick={handleInputFocus}></i>
 
           </div>
 

@@ -35,7 +35,7 @@ const GuestsInput: FC<GuestsInputProps> = ({
   return (
     <div className={`pt-5 flex text-left items-center ${fieldClassName}  px-3 lg:px-8 py-5 focus:outline-none cursor-pointer`}>
       <div className="text-neutral-400 dark:text-neutral-400 mx-2">
-      <i className="fa-regular fa-user text-white text-[25px]"></i>
+      <i className="fa-regular fa-user  text-[20px]"></i>
       {/* <svg xmlns="http://www.w3.org/2000/svg" className="nc-icon-field px-2" fill="none" viewBox="0 0 24 24" stroke="white"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path></svg> */}
       </div>
       <div className="grid grid-cols-2 items-center w-full md:wd-max md:block">
