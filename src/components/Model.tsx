@@ -19,7 +19,7 @@ export default function Modal({ galleryImgs }: ModalProps) {
 
   return (
     <div className="flex flex-1 mr-2">
-      {galleryImgs ? (
+      {galleryImgs.length > 0 ? (
         <div
           onClick={() => setShowModal(true)}
           className="absolute hidden cursor-pointer	bg-[#1d2938] md:flex md:items-center md:justify-center right-2 top-2 px-2 py-2 rounded-xl z-0 hover:opacity-75"
@@ -43,13 +43,13 @@ export default function Modal({ galleryImgs }: ModalProps) {
       ) : (
         ""
       )}
-      {showModal ? (
+      {showModal && galleryImgs.length > 0 ? (
         <>
-          <div className=":bg-neutral-900 text-neutral-900 text-neutral-200 justify-center items-center flex flex-col overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className=":bg-neutral-900 text-neutral-200 justify-center items-center flex flex-col overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
             <div className="absolute z-50 left-0 top-0 flex items-start justify-end p-5 ">
               <button
                 type="button"
-                className="bg-neutral-900 text-neutral-900 text-neutral-200 rounded-md p-2 inline-flex items-center justify-center text-black hover:text-black-500 hover:bg-black-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                className="bg-neutral-900 text-neutral-200 rounded-md p-2 inline-flex items-center justify-cente hover:text-black-500 hover:bg-black-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                 onClick={() => setShowModal(false)}
               >
                 <span className="sr-only">Close menu</span>

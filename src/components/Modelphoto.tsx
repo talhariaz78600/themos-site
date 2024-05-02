@@ -114,7 +114,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                 <div className="min-h-screen px-4 text-center">
                     <Dialog.Overlay className="fixed inset-0 bg-neutral-800" />
                     <div className="absolute left-25 top-25 md:top-6 md:left-16 z-max">
-                        <button
+                        {/* <button
                             className={
                                 `w-8 h-8 flex items-center justify-center rounded-full text-neutral-300  hover:bg-neutral-700 ` 
                                
@@ -123,7 +123,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                         >
                             <span className="sr-only">Close</span>
                             <i className="fa-solid fa-xmark text-white"></i>
-                        </button>
+                        </button> */}
                     </div>
                     {/* This element is to trick the browser into centering the modal contents. */}
                     <span
