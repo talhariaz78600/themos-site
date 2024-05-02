@@ -43,7 +43,7 @@ const VehicleSelectionSuggestedVehicle: React.FC<VehicleSelectionSuggestedVehicl
     // console.log(vehicle.Carousel_Images);
 
     return (
-      <div className="w-full  relative mt-2 px-12 flex flex-col justify-center rounded-lg shadow-2xl bg-[rgb(17 24 40)] divide-y divide-neutral-700 dark:divide-neutral-700 md:divide-y-0 h-full">
+      <div className="w-full container relative mt-2 px-12 flex flex-col justify-center rounded-lg shadow-2xl bg-[rgb(17 24 40)] divide-y divide-neutral-700 dark:divide-neutral-700 md:divide-y-0 h-full">
         <div  className="w-full h-4 md:h-4   bg-white progresvehicalbar  my-4  rounded-full">
           <div
             className="to-pink-500 h-4 md:h-4  rounded-full"
@@ -57,8 +57,8 @@ const VehicleSelectionSuggestedVehicle: React.FC<VehicleSelectionSuggestedVehicl
               {vehicle &&images && <Modal galleryImgs={images} />}
             </div>
             <NcImage
-              containerClassName=""
-              className="rounded-2xl  w-60 h-40"
+              containerClassName="flex items-center justify-center"
+              className="rounded-2xl w-full"
               src={vehicle?.Image.url}
               id="select Steps Dock"
             />
