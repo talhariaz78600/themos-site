@@ -75,7 +75,7 @@ const PickUpAndDropOffWithStatusBar = ({
                                     <div className="pointer-events-none absolute left-0 px-4 text-gray-400">
                                         <FiClock size={20} className="pointer-events-none" />
                                     </div>
-                                    <div className="absolute z-0 inset-y-2 left-0 z-20 flex items-center pl-8 w-full">
+                                    <div className="absolute z-0 inset-y-2 left-0  flex items-center pl-8 w-full">
                                         <CustomTimePicker
                                             value={landingTime}
                                             handleTimeChange={onLandingTimeChange}

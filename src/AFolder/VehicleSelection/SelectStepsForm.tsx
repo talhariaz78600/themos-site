@@ -69,7 +69,7 @@ const SelectStepsForm: React.FC<SelectStepsFormProps> = ({
     return (
       <>
         {stepNumber === 1 ? <VehicleSelectionSuggestedVehicle vehicle={vehicle} /> : null}
-        {/* {stepNumber === 2 ? (
+        {stepNumber === 2 ? (
           <PickUpAndDropOffWithStatusBar
             errorState={errorState}
             transferRouteData={transferRouteData}
@@ -90,7 +90,7 @@ const SelectStepsForm: React.FC<SelectStepsFormProps> = ({
             onReturnDateChange={onReturnDateChange}
             onPickUpAddressChange={onPickUpAddressChange}
           />
-        ) : null} */}
+        ) : null}
         {stepNumber === 3 ? <SelectSteps3Dock /> : null}
       </>
     );
