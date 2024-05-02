@@ -114,7 +114,7 @@ export interface ExperiencesDataType {
 
 //
 export interface CarDataType {
-  id: string | number;
+  id: string ;
   author: AuthorType;
   date: string;
   href: string;

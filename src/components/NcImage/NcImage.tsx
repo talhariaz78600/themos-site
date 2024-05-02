@@ -12,7 +12,7 @@ const NcImage: FC<NcImageProps> = ({
   containerClassName = "",
   alt = "nc-imgs",
   src = "",
-  className = "object-cover",
+  className = "",
   id,
   ...args
 }) => {

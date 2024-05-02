@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 // import { GoogleTranslate } from "@/components/googleTranslate/Translate";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/Footer/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
 import '@fortawesome/fontawesome-free/css/all.css';
 import "@glidejs/glide/dist/css/glide.core.min.css";
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#101726] text-white`}>
         
         {children}
-        <Footer />
+        {/* <Footer /> */}
         {/* <script src="https://kit.fontawesome.com/94794741f1.js"></script> */}
         <Script
                 id="google-translate-script"

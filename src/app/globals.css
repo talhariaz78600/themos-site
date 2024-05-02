@@ -439,3 +439,7 @@ td.rdtYear:hover {
 .form-control{
   display: none;
 }
+
+.to-pink-500 {
+  background-image: linear-gradient(to right, #6366f1, #a855f7 , #ec4899);
+}

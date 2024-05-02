@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import moment, { Moment } from "moment";
+// const router = useRouter();
 export const getRouteDetailsAndPrice = () => {
-    const router = useRouter();
     let routeDetailsAndPrices = JSON.parse(localStorage.getItem('routeDetailsAndPrices') || 'null');
 
     if (
@@ -15,7 +15,7 @@ export const getRouteDetailsAndPrice = () => {
     ) {
         alert('Please Check The Selected Time, Must be at least one hour later');
         localStorage.removeItem('selectedVehicleData');
-        router.push('/');
+        // router.push('/');
     }
 
     return routeDetailsAndPrices;
@@ -57,6 +57,9 @@ export const saveRouteAndPrices = (
     guests: number,
     apiResponse: { data: any }
 ) => {
+    // const router = useRouter();
+    // router.push(`/vehicle-selection`);
+    // console.log(origin,destination,tourTitle,date,guests,apiResponse);
     let saveOnLocal = JSON.stringify({
         origin: {
             id: origin.id,

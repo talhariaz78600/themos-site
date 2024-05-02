@@ -1,8 +1,9 @@
+"use client"
 import React, { useState } from "react";
 import axios from "axios";
 import { REACT_APP_REST_RESOURCE_BASE_END_POINT } from "../components/constants/apiEndpoints";
 import * as generalMethod from "./GeneralMethods";
-// import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation'
 import moment, { Moment } from "moment";
 interface FetchTransferPricesButtonProps {
     sendDataToParent: () => void;
@@ -30,7 +31,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
     setIsModalOpen,
 }) => {
     const [loading, setLoading] = useState(false);
-    // const router = useRouter();
+    const router = useRouter();
 
     const buttonClick = () => {
         setLoading(true);
@@ -59,16 +60,19 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 .then((response) => {
                     console.log(response);
                     generalMethod.saveRouteAndPrices(origin, destination, "", date, guests, response);
+                    console.log("this is working")
                     if (btnType) {
                         checkUpdates();
                     }
                     setLoading(false);
+                    router.push('/vehicle-selection')
+                    
                 })
                 .catch((err) => {
                     setLoading(false);
                     setIsModalOpen(true);
                 });
-        }
+            }
     };
 
     return (
