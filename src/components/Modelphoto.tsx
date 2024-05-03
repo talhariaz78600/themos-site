@@ -23,17 +23,17 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
         const initializeGlide = () => {
             if (!isOpen || !imgs || imgs.length === 0) return;
 
-            const element = document.querySelector(`.${uniqueClass}`);
+            const element = document.querySelector(`.${uniqueClass}`) as HTMLElement;
             if (!element) {
                 console.error(`Element with class '${uniqueClass}' not found.`);
                 return;
             }
 
-            const htmlDir = document.querySelector("html")?.getAttribute("dir") || "ltr";
+            // const htmlDir = document.querySelector("html")?.getAttribute("dir") || "ltr";
 
             try {
                 new Glide(element, {
-                    direction: htmlDir,
+                    // direction: htmlDir,
                     gap: 10,
                     perView: 1,
                     startAt: initFocus,
@@ -129,4 +129,3 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
 };
 
 export default ModalPhotos;
-
