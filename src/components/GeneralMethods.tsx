@@ -1,7 +1,7 @@
 "use client"
 // src/components/GeneralMethods.tsx
 import { Moment } from "moment";
-
+import {useRouter} from "next/navigation"
 export const getRouteDetailsAndPrice = () => {
     if (typeof window !== 'undefined') {
         let routeDetailsAndPrices = JSON.parse(localStorage.getItem('routeDetailsAndPrices') || 'null');
@@ -18,8 +18,8 @@ export const getRouteDetailsAndPrice = () => {
             localStorage.removeItem('selectedVehicleData');
             // Redirect to the homepage if necessary
             // import { useRouter } from 'next/router';
-            // const router = useRouter();
-            // router.push('/');
+            const router = useRouter();
+            router.push('/');
         }
 
         return routeDetailsAndPrices;
