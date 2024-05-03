@@ -443,3 +443,51 @@ td.rdtYear:hover {
 .to-pink-500 {
   background-image: linear-gradient(to right, #6366f1, #a855f7 , #ec4899);
 }
+
+.progresvehicalbar-top{
+  margin-top: 0.2rem;
+}
+.imageofvichlesection{
+  height: 200px;
+  width: 250px;
+}
+@media (min-width: 1030px) {
+  .progresvehicalbar-top{
+    margin-top: 1rem;
+    height: 18px;
+  }
+  .progresvehicalbar-inner{
+    height: 18px;
+  }
+  .imageofvichlesection{
+    height: 180px;
+    width: 200px;
+  }
+}
+
+@media ((max-width:1000px) and (min-width: 770px)) {
+  .progresvehicalbar-top{
+    margin-top: 1rem;
+    height: 16px;
+  }
+  .progresvehicalbar-inner{
+    height: 16px;
+  }
+  .imageofvichlesection{
+    height: 180px;
+    width: 200px;
+  }
+}
+
+@media ((max-width:770px) and (min-width: 330px)) {
+  .progresvehicalbar-top{
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    /* margin-left: 2.5rem;
+    margin-right: 2.5rem; */
+    height: 0.75rem;
+  }
+  .progresvehicalbar-inner{
+    height: 0.75rem;
+  }
+}

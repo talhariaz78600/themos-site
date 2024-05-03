@@ -53,7 +53,7 @@ const VehicleSelection: FC<any> = ({ data }) => {
 }
 
   return (
-    <div className="nc-VehicleSelectionPage container flex flex-col-reverse lg:flex-col relative">
+    <div className="nc-VehicleSelectionPage  flex flex-col-reverse lg:flex-col relative">
       <BgGlassmorphism />
       {suggested && <div
         ref={scrollAnchor}
