@@ -33,6 +33,7 @@ const VehicleSelection: FC<any> = ({ data }) => {
       setUniqueId("web");
       
       const clonedList = data;
+      if (typeof window !== 'undefined') {
       if(window.innerWidth > 640){
         const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
         console.log(suggestedVehicle);
@@ -47,7 +48,8 @@ const VehicleSelection: FC<any> = ({ data }) => {
 
       setState(routeDetailsAndPrices);
     }
-  }, [window.innerWidth]);
+  }
+  }, []);
   const setSuggestedVehicle = (guests:number) => {
     const vehicle = guests <= 4 ? vehicleList[0] :
         guests <= 8 ? vehicleList[3] : vehicleList[5];
