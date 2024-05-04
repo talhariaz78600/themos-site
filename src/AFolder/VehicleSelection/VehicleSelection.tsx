@@ -33,22 +33,17 @@ const VehicleSelection: FC<any> = ({ data }) => {
       setUniqueId("web");
       
       const clonedList = data;
-      if (typeof window !== 'undefined') {
-      if(window.innerWidth > 640){
-        const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
-        console.log(suggestedVehicle);
-        const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
-        console.log(removeSuggested)
-        const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
-        setVehicleList(filtered);
-      }else{
-        const filtered = clonedList.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
-        setVehicleList(filtered);
-      }
+      
+      const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
+      console.log(suggestedVehicle);
+      const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
+      console.log(removeSuggested)
+      const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
+      filtered.push(suggestedVehicle)
+      setVehicleList(filtered);
 
       setState(routeDetailsAndPrices);
     }
-  }
   }, []);
   const setSuggestedVehicle = (guests:number) => {
     const vehicle = guests <= 4 ? vehicleList[0] :
