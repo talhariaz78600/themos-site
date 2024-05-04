@@ -6,11 +6,12 @@ const SelectSteps3Dock = () => {
 
   const renderForm = () => {
     return (
-      <div className="w-full relative mt-2 px-8 flex flex-col justify-center rounded-lg  shadow-xl dark:shadow-2xl bg-white dark:bg-neutral-900 divide-y divide-neutral-200 dark:divide-neutral-700  md:divide-y-0">
+      <div className="w-full relative mt-2 px-8 flex flex-col justify-center rounded-lg  shadow-2xl dark:shadow-2xl bg-[#101726] divide-y divide-neutral-700 dark:divide-neutral-700  md:divide-y-0">
         {/* Progress Bar */}
-        <div className="w-full bg-gray-200 md:h-5 h-3 mb-6 mt-8 rounded-full">
+  
+        <div className="w-full bg-gray-200 progresvehicalbar-top  mb-6 mt-8 rounded-full">
           <div
-            className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-3 md:h-5 rounded-full"
+            className=" to-pink-500 progresvehicalbar-inner rounded-full"
             style={{ width: "100.00%" }}
           ></div>
         </div>        

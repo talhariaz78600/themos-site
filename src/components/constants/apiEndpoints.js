@@ -1,15 +1,12 @@
-// import {loadStripe} from "@stripe/stripe-js";
+import {loadStripe} from "@stripe/stripe-js";
 import {GiBattleship, GiCommercialAirplane} from "react-icons/gi";
 import React, {FC} from "react";
-
-
 const production = "https://certain-corgi-merely.ngrok-free.app" // "http://localhost:8080"
-
 export const REACT_APP_REST_RESOURCE_BASE_END_POINT = process.env.REACT_APP_REST_RESOURCE_BASE_END_POINT || `${production}/api/crm`;
 
 export const REACT_APP_REST_DOMAIN_NAME = process.env.REACT_APP_REST_DOMAIN_NAME_END_POINT || "http://localhost:8000";
 
-// export const stripePromise = loadStripe("pk_test_okk0TZerRWR9ZCyiLFGJ1OYK002vAhrkeS");
+export const stripePromise = loadStripe("pk_test_okk0TZerRWR9ZCyiLFGJ1OYK002vAhrkeS");
 
 
 // export const REACT_APP_REST_RESOURCE_BASE_END_POINT = process.env.REACT_APP_REST_RESOURCE_BASE_END_POINT || "https://83d6-85-73-238-167.ngrok.io/api/crm";

@@ -3,8 +3,8 @@ import React, { FC, useEffect, useState, useRef, useReducer } from "react";
 import { useRouter } from "next/navigation"; // Import next/router for navigation
 import BgGlassmorphism from "../../components/BgGlassmorphism";
 import SelectStepsForm from "../VehicleSelection/SelectStepsForm";
-import SectionSuggestionBox from "../../components/SectionSuggestBox";
-import Step2FormSection1 from "../VehicleSelection/Step2FormSection1";
+// import SectionSuggestionBox from "../../components/SectionSuggestBox";
+// import Step2FormSection1 from "../VehicleSelection/Step2FormSection1";
 import NameMailAndPhone from "../VehicleSelection/NameMailAndPhone";
 import StepsNavigator from "../VehicleSelection/StepsNavigatorSection";
 import TransferSearchForm from "../../components/transfer/TransferSearchPage";
