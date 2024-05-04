@@ -37,20 +37,20 @@ const PickUpAndDropOffWithStatusBar = ({
 
     const renderForm = () => {
         return (
-            <div className="w-full relative mt-2 px-8 flex flex-col justify-center rounded-lg  shadow-xl dark:shadow-2xl bg-white dark:bg-neutral-900 ">
+            <div className="w-full relative mt-2 px-8 flex flex-col justify-center rounded-lg  shadow-xl dark:shadow-2xl ">
                 {/* Progress Bar */}
-                <div className="w-full bg-gray-200 md:h-5 h-3 mb-6 mt-8 rounded-full">
+                <div className="w-full progresvehicalbar-top  bg-gray-200 md:h-5 h-3 mb-4 mt-4 rounded-full">
                     <div
-                        className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-3 md:h-5 rounded-full"
+                        className="bg-gradient-to-r progresvehicalbar-inner to-pink-500 h-3 md:h-5 rounded-full"
                         style={{ width: "66.66%" }}
                     ></div>
                 </div>
                 {/* Selected Car Area */}
-                <div className="flex flex-col justify-between items-start pt-4 w-full space-y-2">
+                <div className="flex flex-col justify-between items-start mt-5 pt-4 w-full space-y-2">
                     {/* Transfer Start-End */}
                     <div className="grid grid-cols-1 md:grid-cols-2 md:items-start space-y-8 md:space-y-0 md:py-0 py-6 w-full">
-                        <div className="flex flex-row md:flex-col items-start space-x-2 md:space-x-0 space-y-0 md:space-y-2">
-                            <p className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
+                        <div className="flex-col items-start space-y-2">
+                            <p className="text-sm  text-neutral-500 dark:text-neutral-400 font-normal">
                                 Pick Up Location:
                             </p>
                             <p className="text-sm font-semibold">
@@ -66,50 +66,42 @@ const PickUpAndDropOffWithStatusBar = ({
                                     value={arrFlightNumber}
                                     onChange={onArrFlightNumberChange}
                                 />
-                                <label >
+                                <Label
+                                    htmlFor="landingTime"
+                                    isError={errorState.landingTime}
+                                    className="ml-4 pt-0.5 w-full"
+
+                                    noLabel=""
+
+                                >
                                     <span>Flight Number, Ship Name Etc</span>
-                                </label>
+                                </Label>
                             </div>
                             <div className="space-y-1 w-full relative">
-                                <div className="relative h-14 flex items-center">
-                                    <div className="pointer-events-none absolute left-0 px-4 text-gray-400">
-                                        <FiClock size={20} className="pointer-events-none" />
-                                    </div>
-                                    <div className="absolute z-0 inset-y-2 left-0  flex items-center pl-8 w-full">
+                                <div className="relative h-14 flex">
+
+                                    {/* Middle Section with CustomTimePicker */}
+                                    <div className="flex items-center pl-8 flex-grow my-4 text-gray-400">
+                                        <span className="text-white mr-3 ml-2">pickUpTime</span>
                                         <CustomTimePicker
                                             value={landingTime}
                                             handleTimeChange={onLandingTimeChange}
                                         />
                                     </div>
-                                    <Input
-                                        readOnly
-                                        id="landingTime"
-                                        placeholder="landingTime"
-                                        value={landingTime ? timeFormat : ""}
-                                        className="px-9 cursor-pointer ml-2"
-                                    />
-                                    <Label
-                                        htmlFor="landingTime"
-                                        isError={errorState.landingTime}
-                                        className="ml-4 pt-0.5 w-full"
-
-                                        noLabel=""
-
-                                    >
-                                        Pick Up Time
-                                    </Label>
+          
                                 </div>
+
                             </div>
                         </div>
                     </div>
 
                     {/* Transfer Start-End Input */}
                     <div className="grid grid-cols-1 md:grid-cols-2 md:pt-12 py-6 space-y-8 md:space-y-0 w-full  items-start">
-                        <div className="flex flex-row md:flex-col items-start space-x-2 md:space-x-0 space-y-0 md:space-y-2">
+                        <div className="flex flex-col items-start">
                             <p className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
                                 Drop Off Location:
                             </p>
-                            <p className="text-sm font-semibold">
+                            <p className="text-sm  font-semibold">
                                 {transferRouteData?.destination.title ?? transferRouteData?.origin.title}
                             </p>
                         </div>
@@ -171,7 +163,7 @@ const PickUpAndDropOffWithStatusBar = ({
                                                         />
                                                     </div>
                                                     <div className="absolute inset-y-2 left-0 z-20 flex items-center pl-10 w-full">
-          
+
                                                         <CustomTimePicker
                                                             value={returnDate}
                                                             handleTimeChange={onReturnDateChange}

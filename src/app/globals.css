@@ -491,3 +491,21 @@ td.rdtYear:hover {
     height: 0.75rem;
   }
 }
+
+.custom-bottom-nav-styles{
+  position: fixed;
+  bottom: 0%;
+  left:0%
+}
+.btn-fixed{
+  color: #a855f7;
+
+}
+.react-time-picker{
+  width:60px;
+  padding: 6px;
+  border-radius: 50px;
+}
+.react-time-picker svg{
+  fill: white;
+}

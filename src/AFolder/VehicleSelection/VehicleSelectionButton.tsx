@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as GeneralMethods from "../../components/GeneralMethods";
-
+import {useRouter} from "next/navigation"
 interface Vehicle {
     VehicleName: string;
     CategoryName: string;
@@ -23,6 +23,7 @@ interface Props {
 
 
 const VehicleSelectionButton: React.FC<Props> = ({ label, selectedVehicle }) => {
+  const router=useRouter();
   const [loading, setLoading] = useState<boolean>(false);
 
   const buttonClick = (vehicle: Vehicle) => {
@@ -32,6 +33,7 @@ const VehicleSelectionButton: React.FC<Props> = ({ label, selectedVehicle }) => 
     } else {
       setLoading(true);
       GeneralMethods.saveSelectedVehicle(vehicle);
+      router.push('/customer-data-form');
     }
   };
   return (

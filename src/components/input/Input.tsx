@@ -29,7 +29,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         className={`block w-full 
           peer
           placeholder-transparent                                   
-          bg-neutral-900 border text-white lg:mx-2 ${rounded} ${fontClass} ${sizeClass} ${className}
+          bg-[#101726] border text-white lg:mx-2 ${rounded} ${fontClass} ${sizeClass} ${className}
            
            ${
              isError

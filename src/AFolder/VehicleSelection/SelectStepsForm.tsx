@@ -12,16 +12,16 @@ interface SelectStepsFormProps {
   transferRouteData: any; // Define the type for transfer route data
   errorState: any; // Define the type for error state
   arrFlightNumber: string;
-  landingTime: Date | null; // Define the type for landing time
+  landingTime: string| null; // Define the type for landing time
   dropAddress: string;
   addReturn: boolean;
   depFilghtNumber: string;
-  pickUpTime: Date | null; // Define the type for pick up time
-  returnDate: Date | null; // Define the type for return date
+  pickUpTime: string | null; // Define the type for pick up time
+  returnDate: string | null; // Define the type for return date
   pickUpAddress: string;
   onArrFlightNumberChange: (value: string|null) => void;
   onLandingTimeChange: (value: Date | null) => void;
-  onDropAddressChange: (value: string) => void;
+  onDropAddressChange: (value: string|null) => void;
   onAddReturnChange: () => void;
   onDepFilghtNumberChange: (value: string|null) => void;
   onPickUpTimeChange: (value: Date | null) => void;

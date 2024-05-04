@@ -33,7 +33,8 @@
     "react-with-styles": "^5.0.0",
     "tw-elements": "^2.0.0",
     "use-window-size": "^0.0.1",
-    "uuidv4": "^6.2.13"
+    "uuidv4": "^6.2.13",
+    "validator": "^13.11.0"
   },
   "devDependencies": {
     "@types/glidejs__glide": "^3.6.5",

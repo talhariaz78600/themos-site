@@ -31,19 +31,23 @@ const VehicleSelection: FC<any> = ({ data }) => {
 
 
       setUniqueId("web");
-      //Remove Suggested Vehicle From The Carousel
+      
       const clonedList = data;
-      const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
-      console.log(suggestedVehicle);
-      const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
-      console.log(removeSuggested)
-      const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
-      console.log(filtered)
-      setVehicleList(filtered);
+      if(window.innerWidth > 640){
+        const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
+        console.log(suggestedVehicle);
+        const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
+        console.log(removeSuggested)
+        const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
+        setVehicleList(filtered);
+      }else{
+        const filtered = clonedList.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
+        setVehicleList(filtered);
+      }
 
       setState(routeDetailsAndPrices);
     }
-  }, []);
+  }, [window.innerWidth]);
   const setSuggestedVehicle = (guests:number) => {
     const vehicle = guests <= 4 ? vehicleList[0] :
         guests <= 8 ? vehicleList[3] : vehicleList[5];

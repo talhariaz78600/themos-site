@@ -1,7 +1,8 @@
 "use client"
 // src/components/GeneralMethods.tsx
 import { Moment } from "moment";
-import {useRouter} from "next/navigation"
+// import {useRouter} from "next/navigation"
+// const router = useRouter();
 export const getRouteDetailsAndPrice = () => {
     if (typeof window !== 'undefined') {
         let routeDetailsAndPrices = JSON.parse(localStorage.getItem('routeDetailsAndPrices') || 'null');
@@ -18,8 +19,7 @@ export const getRouteDetailsAndPrice = () => {
             localStorage.removeItem('selectedVehicleData');
             // Redirect to the homepage if necessary
             // import { useRouter } from 'next/router';
-            const router = useRouter();
-            router.push('/');
+            
         }
 
         return routeDetailsAndPrices;
@@ -68,7 +68,7 @@ export const getStripeClientSecretKey = (selectedVehicleUuid: string) => {
 export const saveRouteAndPrices = (
     origin: { id: string; title: string; subtitle: string },
     destination: { id: string; title: string; subtitle: string },
-    tourTitle: string,
+    tourTitle: string|null,
     date: Moment,
     guests: number,
     apiResponse: { data: any }

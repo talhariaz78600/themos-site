@@ -41,7 +41,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
             setLoading(false);
         } else if (onlyGuestsChanged) {
             const localTransferData = generalMethod.getRouteDetailsAndPrice();
-            generalMethod.saveRouteAndPrices(origin, destination, "", date, guests, localTransferData.fetchedPrices);
+            // generalMethod.saveRouteAndPrices(origin, destination, null, date, guests, localTransferData.fetchedPrices);
             if (btnType) {
                 checkUpdates();
             }
@@ -59,7 +59,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 })
                 .then((response) => {
                     console.log(response);
-                    generalMethod.saveRouteAndPrices(origin, destination, "", date, guests, response);
+                    generalMethod.saveRouteAndPrices(origin, destination, null, date, guests, response);
                     console.log("this is working")
                     if (btnType) {
                         checkUpdates();
@@ -81,7 +81,7 @@ const FetchTransferPricesButton: React.FC<FetchTransferPricesButtonProps> = ({
                 <button
                     onClick={buttonClick}
                     type="button"
-                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-6000 mx-5 hover:bg-blue-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
+                    className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-500 mx-5 hover:bg-blue-700 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
                 >
                     {!loading ? (
                         <span>{label}</span>
