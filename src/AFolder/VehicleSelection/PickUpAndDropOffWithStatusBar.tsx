@@ -49,7 +49,7 @@ const PickUpAndDropOffWithStatusBar = ({
                 <div className="flex flex-col justify-between items-start mt-5 pt-4 w-full space-y-2">
                     {/* Transfer Start-End */}
                     <div className="grid grid-cols-1 md:grid-cols-2 md:items-start space-y-8 md:space-y-0 md:py-0 py-6 w-full">
-                        <div className="flex-col items-start space-y-2">
+                        <div className="location items-start space-y-2">
                             <p className="text-sm  text-neutral-500 dark:text-neutral-400 font-normal">
                                 Pick Up Location:
                             </p>
@@ -82,13 +82,15 @@ const PickUpAndDropOffWithStatusBar = ({
 
                                     {/* Middle Section with CustomTimePicker */}
                                     <div className="flex items-center pl-8 flex-grow my-4 text-gray-400">
-                                        <span className="text-white mr-3 ml-2">pickUpTime</span>
+                                        <span className={`${errorState.pickUpTime != "" ? "text-red-500"
+                                            :
+                                            "text-neutral-200"}  mr-3 ml-2`}>pickUpTime</span>
                                         <CustomTimePicker
                                             value={landingTime}
                                             handleTimeChange={onLandingTimeChange}
                                         />
                                     </div>
-          
+
                                 </div>
 
                             </div>
@@ -97,11 +99,11 @@ const PickUpAndDropOffWithStatusBar = ({
 
                     {/* Transfer Start-End Input */}
                     <div className="grid grid-cols-1 md:grid-cols-2 md:pt-12 py-6 space-y-8 md:space-y-0 w-full  items-start">
-                        <div className="flex flex-col items-start">
+                        <div className="location items-start">
                             <p className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
                                 Drop Off Location:
                             </p>
-                            <p className="text-sm  font-semibold">
+                            <p className="text-sm mt-2 font-semibold">
                                 {transferRouteData?.destination.title ?? transferRouteData?.origin.title}
                             </p>
                         </div>
@@ -114,8 +116,8 @@ const PickUpAndDropOffWithStatusBar = ({
                                 value={dropAddress}
                                 onChange={onDropAddressChange}
                             />
-                            <Label htmlFor="drop-address" isError={errorState.dropAddress}
-                                className="text"
+                            <Label htmlFor="drop-address" isError={""}
+                                className="ml-4 pt-0.5 w-full"
                                 noLabel=""
                             >
                                 Drop Of Details

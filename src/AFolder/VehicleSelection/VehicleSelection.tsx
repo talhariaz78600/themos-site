@@ -39,7 +39,7 @@ const VehicleSelection: FC<any> = ({ data }) => {
       const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
       console.log(removeSuggested)
       const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
-      filtered.push(suggestedVehicle)
+      filtered.unshift(suggestedVehicle)
       setVehicleList(filtered);
 
       setState(routeDetailsAndPrices);

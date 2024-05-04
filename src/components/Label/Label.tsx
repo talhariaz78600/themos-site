@@ -28,9 +28,9 @@ const Label: FC<LabelProps> = ({ className = "", children, isError, noLabel,html
         peer-focus:text-xs         
         transition-all    
         pointer-events-none
-        ${isError ? "peer-placeholder-shown:text-red-500 dark:peer-placeholder-shown:text-red-500 text-red-500" 
+        ${isError!="" ? "peer-placeholder-shown:text-red-500 dark:peer-placeholder-shown:text-red-500 text-red-500" 
         : 
-        "dark:peer-placeholder-shown:text-neutral-200 dark:peer-focus:text-neutral-500 peer-focus:text-neutral-700  " } 
+        "peer-placeholder-shown:text-neutral-200 peer-focus:text-neutral-500" } 
         ${className}`}
       data-nc-id="Label"
     >

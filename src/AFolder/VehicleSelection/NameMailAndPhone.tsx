@@ -10,13 +10,7 @@ interface NameMailAndPhoneProps {
   email: string;
   countryCode: string;
   phoneNumber: string;
-  // errorState: {
-  //   fName: boolean;
-  //   lName: boolean;
-  //   email: boolean;
-  //   countryCode: boolean;
-  //   phoneNumber: boolean;
-  // };
+  errorState: Record<string, string>;
   onFirstNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onLastNameChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onEmailChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -30,7 +24,7 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
   email,
   countryCode,
   phoneNumber,
-  // errorState,
+  errorState,
   onFirstNameChange,
   onLastNameChange,
   onEmailChange,
@@ -53,7 +47,7 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
                 value={fName}
                 onChange={onFirstNameChange}
               />
-              <Label isError={""}  className = ""  noLabel=""  htmlFor="fName">
+              <Label isError={errorState.fName}  className = ""  noLabel=""  htmlFor="fName">
                 First Name
               </Label>
             </div>
@@ -67,7 +61,7 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
                 value={lName}
                 onChange={onLastNameChange}
               />
-              <Label isError={""} className = ""  noLabel="" htmlFor="lName">
+              <Label isError={errorState.lName} className = ""  noLabel="" htmlFor="lName">
                 Last Name
               </Label>
             </div>
@@ -83,10 +77,10 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
               value={email}
               onChange={onEmailChange}
             />
-            <div className="absolute inset-y-0 mx-3 flex items-center pointer-events-none">
+            <div className="absolute inset-y-0  ml-2 flex items-center pointer-events-none">
               <HiOutlineMail size={20} />
             </div>
-            <Label isError={""}  noLabel="" htmlFor="email" className="ml-2">
+            <Label isError={errorState.email}  noLabel="" htmlFor="email" className="ml-2">
               Email Address
             </Label>
           </div>
@@ -102,7 +96,7 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
                 value={countryCode}
                 onChange={onCountryCodeChange}
               />
-              <div className="text-sm absolute top-4.5 mx-3  left-4 mix-blend-difference">
+              <div className="text-sm absolute top-4.5 ml-2 mix-blend-difference">
                 +
               </div>
             </div>
@@ -117,10 +111,10 @@ const NameMailAndPhone: React.FC<NameMailAndPhoneProps> = ({
                 onChange={onPhoneNumberChange}
                 autoComplete="tel-national"
               />
-              <div className="absolute inset-y-0 left-2 mx-3  flex items-center pointer-events-none">
+              <div className="absolute inset-y-0 ml-2 flex items-center pointer-events-none">
                 <BsTelephone size={20} />
               </div>
-              <Label isError={""}   noLabel="" htmlFor="phoneNumber" className="ml-2">
+              <Label isError={errorState.phoneNumber}   noLabel="" htmlFor="phoneNumber" className="ml-2">
                 Phone Number
               </Label>
             </div>

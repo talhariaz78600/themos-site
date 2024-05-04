@@ -113,6 +113,7 @@ const CustomerDataForm: FC = () => {
     dispatch({ type: "PROCESSING", processing: true });
     const errors: Record<string, string> = {};
     if (!state.landingTime) errors.landingTime = "missing";
+    if (!state.landingTime) errors.pickUpAddress = "missing";
     if (state.addReturn && !state.pickUpTime) errors.pickUpTime = "missing";
     if (state.addReturn && !state.returnDate) errors.returnDate = "missing";
     if (state.addReturn && !state.pickUpAddress)
@@ -209,7 +210,7 @@ const CustomerDataForm: FC = () => {
   const customContactDetails = () => {
     return (
       <NameMailAndPhone
-        // errorState={state.errors}
+        errorState={state.errors}
         fName={state.fName}
         lName={state.lName}
         email={state.email}
