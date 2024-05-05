@@ -152,10 +152,10 @@ const CustomerDataForm: FC = () => {
 
       const data = { ...state };
       localStorage.setItem("formState", JSON.stringify(data));
+      router.push("/checkout"); // Navigate to checkout page
       setTimeout(() => {
-        router.push("/checkout"); // Navigate to checkout page
         dispatch({ type: "PROCESSING", processing: false });
-      }, 2000);
+      }, 1000);
     } else {
       dispatch({ type: "PROCESSING", processing: false });
       if (scrollAnchor.current) {
@@ -324,7 +324,7 @@ const CustomerDataForm: FC = () => {
 
   return (
     <div className={`nc-CustomerDataFormPage flex flex-col-reverse lg:flex-col relative`} data-nc-id="CustomerDataFormPage">
-      <BgGlassmorphism />
+      {/* <BgGlassmorphism /> */}
       <div className="container relative space-y-10 mb:space-y-24 mb-4 lg:space-y-32 min-h-screen">
         <div className="relative z-10 mb-0 md:mb-12 lg:mb-0 lg:mt-20 w-full">
           {!routeData?.tourTitle ? (

@@ -453,7 +453,7 @@ const CheckOutPage = ({ className = "min-h-screen relative" }) => {
                                     </Dialog.Title>
                                     <Dialog.Description
                                         className="w-full overflow-y-scroll customScrollbar"
-                                        style={{ height: "80vh" }}
+                                        style={{ height: "100vh" }}
                                     >
                                         <div className="flex flex-col sm:flex-row sm:items-center mx-3 ">
                                             <div className="flex-shrink-0 w-full sm:w-40">
@@ -662,7 +662,7 @@ const CheckOutPage = ({ className = "min-h-screen relative" }) => {
         return (
             <>
                 <div
-                    className="w-full flex mt-4 flex-col rounded-2xl border border-neutral-700 dark:border-neutral-700 space-y-4 px-2 py-4  bg-[#101726] dark:bg-neutral-900">
+                    className="w-full flex mt-4 flex-col rounded-2xl border border-neutral-700 dark:border-neutral-700 space-y-4 px-2 py-4">
                     <div className="relative">
                         <span
                             onClick={() => handleOpenModal()}

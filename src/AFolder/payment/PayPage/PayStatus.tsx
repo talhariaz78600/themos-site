@@ -8,7 +8,7 @@ import axios from 'axios';
 import { REACT_APP_REST_RESOURCE_BASE_END_POINT } from '../../../components/constants/apiEndpoints';
 import * as generalMethod from '../../../components/GeneralMethods';
 import { format } from 'date-fns';
-import Footer from '@/components/Footer/Footer';
+// import Footer from '@/components/Footer/Footer';
 interface PayStatusProps {}
 
 const PayStatus: React.FC<PayStatusProps> = () => {
