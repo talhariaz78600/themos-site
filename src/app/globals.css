@@ -454,6 +454,18 @@ td.rdtYear:hover {
 .viewmodalbutton{
   display: none;
 }
+.paycard{
+  padding-top: 1rem;
+  padding-right: 2.05rem;
+  width: 70%;
+  padding-bottom: 2rem;
+ }
+
+ .booking-vehicle{
+  height: 200px;
+  width: 200px;
+ }
+
 @media (min-width: 1030px) {
   .viewmodalbutton{
     display: none;
@@ -472,8 +484,12 @@ td.rdtYear:hover {
 }
 
 @media ((max-width:1000px) and (min-width: 770px)) {
+  .paycard{
+    padding-right:0px;
+    width: 100%;
+   }
   .viewmodalbutton{
-    display: hidden;
+    display: block;
   }
   .progresvehicalbar-top{
     margin-top: 1rem;
@@ -489,8 +505,13 @@ td.rdtYear:hover {
 }
 
 @media ((max-width:770px) and (min-width: 330px)) {
+  .paycard{
+    padding-right: 0%;
+    width: 100%;
+    border: none !important;
+   }
   .viewmodalbutton{
-    display: hidden;
+    display: block;
   }
   .progresvehicalbar-top{
     margin-top: 2.5rem;
@@ -535,7 +556,28 @@ td.rdtYear:hover {
 .passengers{
   color: white;
 }
-.pay-main{
-  padding-right: 2.55rem;
-  padding-bottom: 8rem;
-} 
+.pay-main {
+  /* Padding */
+  padding-top: 1.1rem; /* Adjust as needed */
+  padding-bottom: 2.4rem; /* Adjust as needed */
+
+  /* Flexbox */
+  display: flex; /* Or flex-inline for inline elements */
+  flex-direction: column-reverse; /* Change to row for horizontal layout */
+
+  /* Positioning */
+  position: relative; /* Remove if not needed */
+}
+
+/* Optional: Responsive Adjustments (if needed) */
+@media (min-width: 1024px) { /* Adjust breakpoint as needed */
+  .pay-main {
+    flex-direction: row; /* Change layout on larger screens */
+    padding-bottom: 3.2rem; /* Adjust padding on larger screens (optional) */
+  }
+}
+
+.modalofcheckup{
+  height: 250px;
+  width: 250px;
+}

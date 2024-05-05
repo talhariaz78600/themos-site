@@ -8,7 +8,7 @@ import axios from 'axios';
 import { REACT_APP_REST_RESOURCE_BASE_END_POINT } from '../../../components/constants/apiEndpoints';
 import * as generalMethod from '../../../components/GeneralMethods';
 import { format } from 'date-fns';
-
+import Footer from '@/components/Footer/Footer';
 interface PayStatusProps {}
 
 const PayStatus: React.FC<PayStatusProps> = () => {
@@ -83,8 +83,23 @@ const PayStatus: React.FC<PayStatusProps> = () => {
   const constructDateTimeToSave = () => {
     const holdsDate = new Date(routeData.date);
     const holdTime = new Date(formState.landingTime);
+    console.log(holdsDate );
+    console.log(formState.landingTime)
 
-    return new Date(holdsDate.getFullYear(), holdsDate.getMonth(), holdsDate.getDate(), holdTime.getHours(), holdTime.getMinutes());
+    const [timePart, period] = formState.landingTime.split(' ');
+
+    // Split the time part into hours and minutes
+    const [hours, minutes] = timePart.split(':').map(Number);
+  
+    // Convert hours to 24-hour format based on period (AM/PM)
+    let hours24 = hours;
+    if (period === 'PM' && hours < 12) {
+      hours24 += 12; // Add 12 hours to convert PM time to 24-hour format
+    } else if (period === 'AM' && hours === 12) {
+      hours24 = 0; // Midnight (12 AM) is 0 in 24-hour format
+    }
+
+    return new Date(holdsDate.getFullYear(), holdsDate.getMonth(), holdsDate.getDate(), hours24, minutes);
   };
 
   const saveServiceToServer = (paymentIntent?: any) => {
@@ -122,15 +137,17 @@ const PayStatus: React.FC<PayStatusProps> = () => {
         price: paymentIntent ? (paymentIntent.amount / 100).toFixed(2) : selectedVehicle.price.toFixed(2),
         vehicleUrl: selectedVehicle.Image.url,
       };
-
+      console.log(dataToSave);
       axios
         .post(`${REACT_APP_REST_RESOURCE_BASE_END_POINT}/checkout`, dataToSave, {
           headers: { 'Content-Type': 'application/json' },
         })
         .then((response) => {
+            console.log(response)
           setIsLoading(false);
           setErrorPage((prev) => ({ ...prev, isOpen: false }));
           setBookingNumber(response.data);
+          generalMethod.saveBookingConfirmation(response.data)
           setMessage('Success! Payment received. 🎉');
         })
         .catch((error) => {
@@ -147,14 +164,14 @@ const PayStatus: React.FC<PayStatusProps> = () => {
 
   const renderSpinnerWhileLoading = () => {
     return (
-        <div className="lg:mt-24 mb-28  md:mb-34 lg:mb-60 sm:border border-neutral-200 dark:border-neutral-700">
+        <div className="lg:mt-24 mb-28  md:mb-34 lg:mb-60 border border-neutral-700 dark:border-neutral-700">
             <h2 className="pt-10 text-3xl lg:text-2xl justify-center flex font-semibold">
                 Processing Your Reservation, Please Wait...
             </h2>
             <div className="flex justify-center items-center noFocus pt-10 pb-10">
                 <svg
                     role="status"
-                    className="w-6 h-6 text-gray-200 animate-spin dark:text-gray-400 fill-primary-6000"
+                    className="w-6 h-6 text-gray-400 animate-spin dark:text-gray-400 fill-blue-600"
                     viewBox="0 0 100 101"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -176,10 +193,10 @@ const PayStatus: React.FC<PayStatusProps> = () => {
 const getPickUpDateTime = () => {
 
     return (
-        <div className="flex text-neutral-6000 dark:text-neutral-300">
+        <div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Pick-Up Date Time:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                 {format(new Date(constructDateTimeToSave()), 'dd/MM/yyyy HH:mm')}
             </span>
         </div>
@@ -189,10 +206,10 @@ const getPickUpDateTime = () => {
 const bookingId = () => {
     if (bookingNumber) {
         return (
-            <div className="flex text-neutral-6000 dark:text-neutral-300">
+            <div className="flex text-neutral-300 dark:text-neutral-300">
                 <span className="flex-1">Booking #:</span>
                 <span
-                    className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                    className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                             TG{new Date().getFullYear()}{bookingNumber}
             </span>
             </div>
@@ -203,10 +220,10 @@ const bookingId = () => {
 
 const getOrigin = () => {
     return (
-        <div className="flex text-neutral-6000 dark:text-neutral-300">
+        <div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Pick-Up Location:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                             {routeData?.origin?.title} {formState?.arrFlightNumber}</span>
         </div>
 
@@ -221,10 +238,10 @@ const getDestination = () => {
         destination = routeData?.destination.title + " " + formState?.dropAddress
     }
 
-    return (<div className="flex text-neutral-6000 dark:text-neutral-300">
+    return (<div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Drop-Off Location:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                 {destination}
             </span>
         </div>
@@ -233,10 +250,10 @@ const getDestination = () => {
 
 const bookedOn = () => {
     if (paymentDetail) {
-        return (<div className="flex text-neutral-6000 dark:text-neutral-300">
+        return (<div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Payment Date:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                         {new Date(1000 * paymentDetail.created).toLocaleDateString()}
         </span>
         </div>)
@@ -245,10 +262,10 @@ const bookedOn = () => {
 
 const passengersName = () => {
     return (
-        <div className="flex text-neutral-6000 dark:text-neutral-300">
+        <div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Passengers Name:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
                          {formState.fName} {formState.lName}
             </span>
         </div>
@@ -257,10 +274,10 @@ const passengersName = () => {
 
 const email = () => {
     return (
-        <div className="flex text-neutral-6000 dark:text-neutral-300">
+        <div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Email Address:</span>
             <span
-                className="flex-1 truncate font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 truncate font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
               {formState.email}
             </span>
         </div>
@@ -269,10 +286,10 @@ const email = () => {
 
 const phone = () => {
     return (
-        <div className="flex text-neutral-6000 dark:text-neutral-300">
+        <div className="flex text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Phone Number:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-300 dark:text-neutral-100">
               +{formState.countryCode} {formState.phoneNumber}
             </span>
         </div>
@@ -281,10 +298,10 @@ const phone = () => {
 
 const paymentMethod = () => {
     return (
-        <div className="flex justify-between text-neutral-6000 dark:text-neutral-300">
+        <div className="flex justify-between text-neutral-300 dark:text-neutral-300">
             <span className="flex-1">Payment method:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
               {paymentDetail ? "Credit card" : "Cash To Driver"}
             </span>
         </div>
@@ -296,9 +313,9 @@ const getSelectedVehicle = () => {
         <div className="space-y-6">
             <h3 className="text-2xl font-semibold">Booked Vehicle</h3>
             <div className="flex flex-col sm:flex-row sm:items-center">
-                <div className="flex-shrink-0 w-full sm:w-40">
+                <div className="flex-shrink-0">
                     <div className="object-contain aspect-h-4  md:aspect-h-1  rounded-2xl overflow-hidden">
-                        <NcImage src={selectedVehicle.Image.url} className='' id="pay status "/>
+                        <NcImage src={selectedVehicle.Image.url} className='booking-vehicle' id="pay status "/>
                     </div>
                 </div>
                 <div className="pt-5  sm:pb-5 sm:px-5 space-y-3">
@@ -329,7 +346,7 @@ const totalCost = () => {
         <div className="flex text-neutral-6000 dark:text-neutral-300">
             <span className="flex-1">Total Cost:</span>
             <span
-                className="flex-1 font-normal md:font-medium text-neutral-900 dark:text-neutral-100">
+                className="flex-1 font-normal md:font-medium text-neutral-100 dark:text-neutral-100">
               €{paymentDetail ? (paymentDetail.amount / 100).toFixed(2) : (selectedVehicle.price).toFixed(2)}
             </span>
         </div>
@@ -385,8 +402,8 @@ const totalCost = () => {
 const renderPayMain = () => {
     return (
         <div
-            className="w-full flex flex-col sm:rounded-2xl sm:border border-neutral-200 dark:border-neutral-700
-            space-y-8 px-0 sm:p-6 xl:p-8"
+            className="w-full flex flex-col sm:rounded-2xl border border-neutral-200 dark:border-neutral-700
+            space-y-8 px-0 p-6 xl:p-8"
         >
             <h2 className="text-3xl lg:text-4xl font-semibold">{message}</h2>
             <>
@@ -434,7 +451,9 @@ const errorPageNavigation = () => {
 
 return isLoading ? renderSpinnerWhileLoading() : errorPage.isOpen ? errorPageNavigation() :
     (
-    <div className={"pb-8"}>{renderPayMain()}</div>
+    <div className={"pb-8"}>{renderPayMain()}
+    
+    </div>
 );
 };
 

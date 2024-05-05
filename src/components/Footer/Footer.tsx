@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
 
                     {menu.menus.map((item, index) => (
                         <Link key={index}   href={item.href}>
-                            <li className="my-3 text-sm text-neutral-300 hover:text-black hover:text-white">{item.label}</li>
+                            <li className="my-3 text-sm text-neutral-30 hover:text-white">{item.label}</li>
                         </Link>
                     ))} 
                     </ul>

@@ -101,7 +101,7 @@ export const saveSelectedVehicle = (selectedVehicle: any) => {
     }
 };
 
-export const saveBookingConfirmation = (savedTransfer: string) => {
+export const saveBookingConfirmation = (savedTransfer: any) => {
     if (typeof window !== 'undefined') {
         localStorage.setItem('bookingConfirmation', savedTransfer);
     }

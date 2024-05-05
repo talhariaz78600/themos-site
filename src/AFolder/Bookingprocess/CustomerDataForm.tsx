@@ -11,7 +11,7 @@ import TransferSearchForm from "../../components/transfer/TransferSearchPage";
 import * as generalMethods from "../../components/GeneralMethods";
 import ModalDialog from "../../components/ModalDialog/ModalDialog";
 import axios from "axios"
-import {dialogErrorMessage, REACT_APP_REST_RESOURCE_BASE_END_POINT} from "../../components/constants/apiEndpoints";
+import { dialogErrorMessage, REACT_APP_REST_RESOURCE_BASE_END_POINT } from "../../components/constants/apiEndpoints";
 
 
 interface ExtraItem {
@@ -44,7 +44,8 @@ type Action =
   | { type: "UPDATE_FIELD"; field: keyof State; value: string }
   | { type: "TOGGLE_RETURN" }
   | { type: "SET_ERRORS"; errors: Record<string, string> }
-  | { type: "PROCESSING"; processing: boolean };
+  | { type: "PROCESSING"; processing: boolean }
+  | { type: "SET_PREVIOUS_DATA"; previousData: any };
 
 
 const defaultState: State = {
@@ -84,19 +85,39 @@ const defaultState: State = {
   processing: false,
 };
 const reducer = (state: State, action: Action): State => {
-    switch (action.type) {
-      case "UPDATE_FIELD":
-        return { ...state, [action.field]: action.value };
-      case "TOGGLE_RETURN":
-        return { ...state, addReturn: !state.addReturn };
-      case "SET_ERRORS":
-        return { ...state, errors: action.errors };
-      case "PROCESSING":
-        return { ...state, processing: action.processing };
-      
-    }
-  };
-  
+  switch (action.type) {
+    case "UPDATE_FIELD":
+      return { ...state, [action.field]: action.value };
+    case "TOGGLE_RETURN":
+      return { ...state, addReturn: !state.addReturn };
+    case "SET_ERRORS":
+      return { ...state, errors: action.errors };
+    case "PROCESSING":
+      return { ...state, processing: action.processing };
+    case "SET_PREVIOUS_DATA":
+      return {
+        ...state,
+        fName: action.previousData.fName,
+        lName: action.previousData.lName,
+        email: action.previousData.email,
+        countryCode: action.previousData.countryCode,
+        phoneNumber: action.previousData.phoneNumber,
+        arrFlightNumber: action.previousData.arrFlightNumber,
+        landingTime: action.previousData.landingTime,
+        dropAddress: action.previousData.dropAddress,
+        addReturn: action.previousData.addReturn,
+        depFilghtNumber: action.previousData.depFilghtNumber,
+        pickUpTime: action.previousData.pickUpTime,
+        returnDate: action.previousData.returnDate,
+        pickUpAddress: action.previousData.pickUpAddress,
+        extrasArr: action.previousData.extrasArr,
+      };
+    default:
+      return state;
+
+  }
+};
+
 
 const CustomerDataForm: FC = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
@@ -146,28 +167,28 @@ const CustomerDataForm: FC = () => {
     }
   };
 
-  const fetchForPaymentIntent = (uuid: string, tourTitle: string|null) => {
+  const fetchForPaymentIntent = (uuid: string, tourTitle: string | null) => {
     let stripeSecret = generalMethods.getStripeClientSecretKey(uuid);
     if (!stripeSecret) {
-        let data = JSON.stringify({
-            uuid: uuid,
-            tourTitle: tourTitle,
-        });
+      let data = JSON.stringify({
+        uuid: uuid,
+        tourTitle: tourTitle,
+      });
 
-        axios
-            .post(
-                `${REACT_APP_REST_RESOURCE_BASE_END_POINT}/create-payment-intent`,
-                data,
-                {
-                    headers: {"Content-Type": "application/json"},
-                }
-            )
-            .then((res) => {
-                generalMethods.saveStripeClientSecretKey(res, uuid)
-            })
-            .catch((error) => {
-                setIsModalOpen(true)
-            });
+      axios
+        .post(
+          `${REACT_APP_REST_RESOURCE_BASE_END_POINT}/create-payment-intent`,
+          data,
+          {
+            headers: { "Content-Type": "application/json" },
+          }
+        )
+        .then((res) => {
+          generalMethods.saveStripeClientSecretKey(res, uuid)
+        })
+        .catch((error) => {
+          setIsModalOpen(true)
+        });
     }
   };
 
@@ -183,9 +204,9 @@ const CustomerDataForm: FC = () => {
 
     fetchForPaymentIntent(vehicleDetail.uuid, routeDetailsAndPrices?.tourTitle);
 
-    // if (customerData) {
-    //   dispatch({ type: "SET_PREVIOUS_DATA", previousData: customerData });
-    // }
+    if (customerData) {
+      dispatch({ type: "SET_PREVIOUS_DATA", previousData: customerData });
+    }
 
     setRoutData(routeDetailsAndPrices);
     setSelectedVehicle(vehicleDetail);
@@ -200,11 +221,11 @@ const CustomerDataForm: FC = () => {
   }, []);
 
   const checkUpdates = () => {
-      const routeDetailsAndPrices = generalMethods.getRouteDetailsAndPrice();
-      const vehicleDetail = generalMethods.getSelectedVehicle();
-      setRoutData(routeDetailsAndPrices);
-      setSelectedVehicle(vehicleDetail);
-      router.push('/');
+    const routeDetailsAndPrices = generalMethods.getRouteDetailsAndPrice();
+    const vehicleDetail = generalMethods.getSelectedVehicle();
+    setRoutData(routeDetailsAndPrices);
+    setSelectedVehicle(vehicleDetail);
+    router.push('/');
   };
 
   const customContactDetails = () => {
@@ -235,12 +256,13 @@ const CustomerDataForm: FC = () => {
     );
   };
 
+
   const routDataAndProgressBar = () => {
     return (
       <div className="relative">
         <div ref={scrollAnchor} className="absolute -top-24" />
         <SelectStepsForm
-        vehicle={null}
+          vehicle={null}
           transferRouteData={routeData}
           className="lg:-mt-10"
           stepNumber={2}
@@ -254,35 +276,34 @@ const CustomerDataForm: FC = () => {
           pickUpTime={state.pickUpTime}
           returnDate={state.returnDate}
           pickUpAddress={state.pickUpAddress}
-          onArrFlightNumberChange={(e:any) =>
+          onArrFlightNumberChange={(e: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "arrFlightNumber", value: e.target.value })
           }
-          onLandingTimeChange={(value:any) =>
+          onLandingTimeChange={(value: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "landingTime", value })
           }
-          onDropAddressChange={(e:any) =>
+          onDropAddressChange={(e: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "dropAddress", value: e.target.value })
           }
           onAddReturnChange={() =>
             dispatch({ type: "TOGGLE_RETURN" })
           }
-          onDepFilghtNumberChange={(e:any) =>
+          onDepFilghtNumberChange={(e: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "depFilghtNumber", value: e.target.value })
           }
-          onPickUpTimeChange={(value:any) =>
+          onPickUpTimeChange={(value: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "pickUpTime", value })
           }
-          onReturnDateChange={(value:any) =>
+          onReturnDateChange={(value: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "returnDate", value })
           }
-          onPickUpAddressChange={(e:any) =>
+          onPickUpAddressChange={(e: any) =>
             dispatch({ type: "UPDATE_FIELD", field: "pickUpAddress", value: e.target.value })
           }
         />
       </div>
     );
   };
-
   const bookingBottomBar = () => {
     return (
       <div className="mt-6 md:mt-16 relative flex flex-col">
@@ -292,7 +313,7 @@ const CustomerDataForm: FC = () => {
             processing={loading}
             onNavigateBack={() => {
               router.push(`/vehicle-selection`);
-            console.log("how are you")
+              console.log("how are you")
             }}
             onBookNowClick={handleSubmit}
           />
@@ -307,8 +328,8 @@ const CustomerDataForm: FC = () => {
       <div className="container relative space-y-10 mb:space-y-24 mb-4 lg:space-y-32 min-h-screen">
         <div className="relative z-10 mb-0 md:mb-12 lg:mb-0 lg:mt-20 w-full">
           {!routeData?.tourTitle ? (
-           
-            <TransferSearchForm sendToParent={()=>{}} haveDefaultValue={routeData} btnType={"filter"} checkUpdates={checkUpdates} />
+
+            <TransferSearchForm sendToParent={() => { }} haveDefaultValue={routeData} btnType={"filter"} checkUpdates={checkUpdates} />
           ) : (
             <div></div>
           )}

@@ -126,6 +126,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
           checkUpdates={checkUpdates}
           btnType={btnType}
           setIsModalOpen={setIsModalOpen}
+          label="Search"
         />
       );
     } else if (haveDefaultValue.guests !== guestValue) {
