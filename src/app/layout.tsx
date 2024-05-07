@@ -20,19 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </head>
       <body className={`${inter.className} bg-[#101726] text-white`}>
-        
+
         {children}
         {/* <Footer /> */}
         {/* <script src="https://kit.fontawesome.com/94794741f1.js"></script> */}
         <Script
-                id="google-translate-script"
-                // strategy="afterInteractive" // Load after interactive content
-                src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
-            />
-            
+          id="google-translate-script"
+          // strategy="afterInteractive" // Load after interactive content
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+        />
       </body>
     </html>
   );

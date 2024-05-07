@@ -1,17 +1,14 @@
 "use client"
 import React, { FC, useEffect, useState, useRef, useReducer } from "react";
-import { useRouter } from "next/navigation"; // Import next/router for navigation
-import BgGlassmorphism from "../../components/BgGlassmorphism";
+import { useRouter } from "next/navigation";
 import SelectStepsForm from "../VehicleSelection/SelectStepsForm";
-// import SectionSuggestionBox from "../../components/SectionSuggestBox";
-// import Step2FormSection1 from "../VehicleSelection/Step2FormSection1";
 import NameMailAndPhone from "../VehicleSelection/NameMailAndPhone";
 import StepsNavigator from "../VehicleSelection/StepsNavigatorSection";
 import TransferSearchForm from "../../components/transfer/TransferSearchPage";
 import * as generalMethods from "../../components/GeneralMethods";
 import ModalDialog from "../../components/ModalDialog/ModalDialog";
 import axios from "axios"
-import { dialogErrorMessage, REACT_APP_REST_RESOURCE_BASE_END_POINT } from "../../components/constants/apiEndpoints";
+import {REACT_APP_REST_RESOURCE_BASE_END_POINT} from "../../components/constants/apiEndpoints";
 
 
 interface ExtraItem {
