@@ -54,10 +54,10 @@ const widgetMenus: WidgetFooterMenu[] = [
         id: "5",
         title: "Multi-Day Tours",
         menus: [
-            { href: "/", label: "2-Days Delphi & Meteora" },
-            { href: "/", label: "2-Days Argolida & Olympia" },
-            { href: "/", label: "3-Days Argolida  & Olympia & Delphi" },
-            { href: "/", label: "4-Days Argolida  & Olympia & Delphi & Meteora" },
+            { href: "/tours/two_days_tour/delphi_meteora", label: "2-Days Delphi & Meteora" },
+            { href: "/tours/two_days_tour/argolida_olympia", label: "2-Days Argolida & Olympia" },
+            { href: "/tours/three_days_tour/argolida_olympia_delphi", label: "3-Days Argolida  & Olympia & Delphi" },
+            { href: "/tours/four_days_tour/argolida_olympia_delphi_meteora", label: "4-Days Argolida  & Olympia & Delphi & Meteora" },
         ],
     },
     {
@@ -94,7 +94,7 @@ const Footer: React.FC = () => {
     };
 
     return (
-        <div className="nc-Footer relative py-12 lg:py-16 border-t border-neutral-200 dark:border-neutral-700 md:px-1 lg:px-2">
+        <div className="nc-Footer relative py-12 lg:py-16 border-t border-neutral-700 dark:border-neutral-700 md:px-1 lg:px-2">
             <div className="container grid grid-cols-2 gap-y-10 gap-x-5 sm:gap-x-8 md:grid-cols-4 lg:grid-cols-5 lg:gap-x-10 ">
                 <div className="grid grid-cols-4 gap-5 col-span-2 md:col-span-4 lg:md:col-span-1 lg:flex lg:flex-col">
                     <div className="col-span-2 md:col-span-1">
@@ -106,10 +106,10 @@ const Footer: React.FC = () => {
                 </div>
                 {widgetMenus.map(renderWidgetMenuItem)}
             </div>
-            <p className="text-center text-white pt-8  leading-relaxed">
+            <p className="text-center text-neutral-200 pt-8  leading-relaxed">
                 Member Of The Greek Tourism Organization
             </p>
-            <p className="text-center text-white mt-2  leading-relaxed">Registration Number: O206E81000524201</p>
+            <p className="text-center text-neutral-200 mt-2  leading-relaxed">Registration Number: O206E81000524201</p>
         </div>
     );
 };

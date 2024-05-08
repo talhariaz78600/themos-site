@@ -38,21 +38,10 @@ const StayCard: FC<StayCardProps> = ({
     id,
   } = data;
 
-  const handleCardClickEvent = (e: React.MouseEvent<HTMLElement>) => {
-    const target = e.target as HTMLElement;
-    if (
-      target.classList.contains("las") ||
-      target.classList.contains("las") ||
-      target.title === "Next" ||
-      target.title === "Prev" ||
-      target.id === "Modal" ||
-      target.nodeName === "svg" ||
-      target.innerText === "Close"
-    ) {
-      return;
-    } else {
-      navigate.push(href);
-    }
+  const handleCardClickEvent = () => {
+   console.log(href);
+   console.log("how are you")
+    navigate.push(`/tours/${href}`);
   };
 
   const renderSliderGallery = () => {

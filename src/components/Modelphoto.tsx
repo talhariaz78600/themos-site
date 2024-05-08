@@ -102,15 +102,15 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
         return (
             <Dialog
                 as="div"
-                className="fixed inset-0 z-max overflow-y-auto dark bg-neutral-800 text-neutral-200 hiddenScrollbar"
+                className="fixed inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
                 onClose={onClose}
                 open={isOpen}
             >
                 <div className="min-h-screen px-4 text-center">
-                    <Dialog.Overlay className="fixed inset-0 bg-neutral-800" />
+                    <Dialog.Overlay className="fixed inset-0 bg-[#101726]" />
                     {/* Close button */}
                     <div className="absolute left-25 top-25 md:top-6 md:left-16 z-max">
-                        {/* Implement your close button here */}
+                        cut
                     </div>
 
                     {/* This element is to center the modal contents */}
