@@ -3,13 +3,15 @@ import React, {useState} from "react";
 import axios from "axios";
 import {REACT_APP_REST_RESOURCE_BASE_END_POINT} from "../../components/constants/apiEndpoints";
 import * as generalMethods from "../../components/GeneralMethods";
-
+import {useRouter} from "next/navigation"
 
 const TourBookNowButton = ({className = "", sendDataToParent, origin, destination, date, guests,
                              tourId, tourTitle, setIsModalOpen}) => {
+    const navigate=useRouter();
   const [loading, setLoading] = useState(false);
 
   const buttonClick = () => {
+    console.log(origin,date,guests)
     if (!origin || !date || !guests) {
       sendDataToParent()
     } else {
@@ -32,12 +34,14 @@ const TourBookNowButton = ({className = "", sendDataToParent, origin, destinatio
               }
           )
           .then((r) => {
-
+            console.log(r)
             generalMethods.saveRouteAndPrices(origin, destination, tourTitle, date, guests, r)
+            navigate.push(`/vehicle-selection`);
 
           })
           .catch((err) => {
             //todo display the error to the user
+            console.log(err);
             setLoading(false);
             setIsModalOpen(true);
           });
@@ -46,7 +50,7 @@ const TourBookNowButton = ({className = "", sendDataToParent, origin, destinatio
 
   return (
     <Button
-        onClick={buttonClick} className={`ttnc-ButtonPrimary disabled:bg-opacity-70 bg-primary-6000 hover:bg-primary-700 text-neutral-50 ${className}`}>
+        onClick={buttonClick} className={`ttnc-ButtonPrimary disabled:bg-opacity-70 bg-blue-600 w-full hover:bg-blue-900 text-neutral-50 ${className}`}>
       {!loading ? (
           <span>{"Book Now"}</span>
       ) : (

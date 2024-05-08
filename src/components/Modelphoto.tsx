@@ -69,7 +69,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                                 <NcImage
                                     src={item}
                                     containerClassName="w-full h-full"
-                                    className="absolute object-contain w-full max-h-screen"
+                                    className="w-full h-[400px]"
                                     id={`Modal-photo-${index}`}
                                 />
                             </li>
@@ -79,7 +79,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
 
                 {/* Glide arrows */}
                 {imgs && (
-                    <div className="xl:absolute z-20 xl:-inset-x-20 max-w-6xl my-2 mx-auto top-full xl:top-1/2 transform xl:-translate-y-1/2 flex xl:justify-between glide__arrows" data-glide-el="controls">
+                    <div className="absolute z-20 xl:-inset-x-20 max-w-6xl my-2 mx-auto top-full xl:top-1/2 transform xl:-translate-y-1/2 flex xl:justify-between glide__arrows" data-glide-el="controls">
                         <NextPrev
                             onlyPrev
                             className="mr-1.5"
@@ -102,15 +102,15 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
         return (
             <Dialog
                 as="div"
-                className="fixed inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
+                className=" inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
                 onClose={onClose}
                 open={isOpen}
             >
                 <div className="min-h-screen px-4 text-center">
                     <Dialog.Overlay className="fixed inset-0 bg-[#101726]" />
                     {/* Close button */}
-                    <div className="absolute left-25 top-25 md:top-6 md:left-16 z-max">
-                        cut
+                    <div className="absolute  md:top-6  z-max">
+                    <i className="fa-regular fa-circle-xmark text-white text-2xl" onClick={onClose}></i>
                     </div>
 
                     {/* This element is to center the modal contents */}

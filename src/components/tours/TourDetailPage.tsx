@@ -9,7 +9,7 @@ import ModalPhotos from "../../components/Modelphoto";
 import ExperiencesDateSingleInput from "../../components/ExperiencesDateSingleInput";
 import TourCardGrid from "./TourCardGrid";
 import ReactMarkdown from "react-markdown";
-// import LocationInput from "../../components/TourLocationInput";
+import LocationInput from "../../components/TourLocationInput";
 import Checkbox from "../../components/Checkbox/Checkbox";
 import ModalDialog from "../../components/ModalDialog/ModalDialog";
 import moment, { Moment } from "moment";
@@ -174,8 +174,8 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-neutral-400 dark:text-neutral-300 ">
                     {included
                         .filter((_, i) => i < 12)
-                        .map((item) => (
-                            <div key={item.name} className="flex items-center space-x-3">
+                        .map((item,index) => (
+                            <div key={index} className="flex items-center space-x-3">
                                 <i className="fa-regular fa-circle-check text-2xl"></i>
                                 <span>{item.name}</span>
                             </div>
@@ -193,8 +193,8 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-neutral-400 dark:text-neutral-300 ">
                     {notIncluded
                         .filter((_, i) => i < 12)
-                        .map((item) => (
-                            <div key={item.name} className="flex items-center space-x-3">
+                        .map((item,index) => (
+                            <div key={index} className="flex items-center space-x-3">
                                 <i className="fa-regular fa-circle-check text-2xl"></i>
                                 <span>{item.name}</span>
                             </div>
@@ -424,7 +424,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                         </div>
                     </div>
                     <div className="pt-6">
-                        {/* <div className="border dark:border-neutral-700 rounded-3xl">
+                        <div className="borderborder-neutral-700 rounded-3xl">
                             <LocationInput
                                 placeHolder={diffrentDropOff ? "Pick-Up" : "Pick-Up & Drop-Off"}
                                 desc="Athens Airport, Piraeus Port Etc.?"
@@ -437,12 +437,12 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                 setIsModalOpen={setIsModalOpen}
                                 // Id="tour1"
                             />
-                        </div> */}
+                        </div>
                     </div>
                     {diffrentDropOff && (
                         <div className="pt-6">
                             <div className="border dark:border-neutral-700 rounded-3xl">
-                                {/* <LocationInput
+                                <LocationInput
                                     placeHolder="Drop-Off"
                                     desc="Athens Airport, Piraeus Port Etc.?"
                                     defaultValue={dropOffInputValue}
@@ -453,11 +453,11 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                     className="h-20"
                                     setIsModalOpen={setIsModalOpen}
                                     // Id="tour2"
-                                /> */}
+                                />
                             </div>
                         </div>
                     )}
-                    <div className="pt-6 pl-4">
+                    <div className="py-4 pl-4">
                         <Checkbox
                             name=""
                             label="Diffrent Drop-Off Location"
@@ -477,8 +477,8 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                             <span>Vat</span>
                             <span>€{Math.round((renderPrice() * 0.13) * 100) / 100}</span>
                         </div> */}
-                    <div className="border-b border-neutral-200 dark:border-neutral-700" />
-                    <div className="flex justify-between font-semibold">
+                    <div className="border-b border-neutral-700 my-4 dark:border-neutral-700" />
+                    <div className="flex justify-between font-semibold my-4">
                         <span>Total Price (All included)</span>
                         <span>€{renderPrice()}</span>
                     </div>
@@ -583,7 +583,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
             {/* SINGLE HEADER */}
             <>
                 <header className="container 2xl:px-14 rounded-md sm:rounded-xl">
-                    <div className="relative grid grid-cols-4 gap-1 sm:gap-2">
+                    <div className="grid grid-cols-4 gap-1 sm:gap-2">
                         <div
                             className="col-span-3 row-span-3 relative rounded-md sm:rounded-xl overflow-hidden cursor-pointer"
                             onClick={() => handleOpenModal(0)}
@@ -608,7 +608,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                 >
                                     <NcImage
                                         containerClassName="aspect-w-4 aspect-h-3"
-                                        className="object-cover w-full h-[250px] rounded-md sm:rounded-xl "
+                                        className="object-cover w-full detailtour-image rounded-md sm:rounded-xl "
                                         src={item.url || ""}
                                         // prevImageHorizontal
                                         id="tours-2"
@@ -692,6 +692,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                         </span>
                     </span>
                     <ButtonPrimary
+                    
                         sendDataToParent={(e:any) => bookNowButtonClicked()}
                         origin={pickUpInputValue}
                         destination={dropOffInputValue}

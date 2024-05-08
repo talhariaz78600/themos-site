@@ -551,8 +551,13 @@ td.rdtYear:hover {
   height: 200px;
   width: 200px;
 }
-
+.detailtour-image{
+  height: 250px;
+}
 @media (min-width: 1030px) {
+  .detailtour-image{
+    height: 210px;
+  }
   .viewmodalbutton {
     display: none;
   }
@@ -573,6 +578,9 @@ td.rdtYear:hover {
 }
 
 @media ((max-width:1000px) and (min-width: 770px)) {
+  .detailtour-image{
+    height: 180px;
+  }
   .paycard {
     padding-right: 0px;
     width: 100%;
@@ -598,6 +606,9 @@ td.rdtYear:hover {
 }
 
 @media ((max-width:770px) and (min-width: 330px)) {
+  .detailtour-image{
+    height: 100px;
+  }
   .paycard {
     padding-right: 0%;
     width: 100%;
