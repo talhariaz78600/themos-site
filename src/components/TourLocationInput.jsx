@@ -65,7 +65,7 @@ const TourLocationInput = ({
     if (onChange) {
       onChange(value);
     }
-  }, [onChange, value]);
+  }, [value]);
 
   const getData = useCallback(
     debounce((val) => {

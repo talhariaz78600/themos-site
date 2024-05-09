@@ -412,7 +412,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                 defaultValue={null}
                                 onChange={(date:any) => setdateValue(date)}
                                 defaultFocus={dateFocused}
-                            onFocusChange={(focus) => setDateFocused(focus)}
+                                onFocusChange={(focus) => setDateFocused(focus)}
                             />
                         </div>
                         <div className="flex-1">
@@ -430,7 +430,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                 desc="Athens Airport, Piraeus Port Etc.?"
                                 defaultValue={pickUpInputValue}
                                 onChange={(e:any) => setPickUpInputValue(e)}
-                                onInputDone={""}
+                                onInputDone={()=>{}}
                                 autoFocus={originFocus}
                                 onFocusChange={(e:any) => setOriginFocus(e)}
                                 className="h-20"
@@ -447,7 +447,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                     desc="Athens Airport, Piraeus Port Etc.?"
                                     defaultValue={dropOffInputValue}
                                     onChange={(e:any) => setDropOffInputValue(e)}
-                                    onInputDone={null}
+                                    onInputDone={()=>{}}
                                     autoFocus={originFocus}
                                     onFocusChange={(e:any) => setOriginFocus(e)}
                                     className="h-20"
