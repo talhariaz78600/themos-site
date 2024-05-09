@@ -417,7 +417,7 @@ const CheckOutPage = ({ className = "min-h-screen relative" }) => {
                 <Dialog
                     as="div"
                     onClose={() => handleOpenModal()}
-                    className=" fixed inset-0 z-50"
+                    className=" fixed left-0 top-0 z-[1055]  h-full w-full overflow-y-auto overflow-x-hidden outline-none text-white bg-[#101726]"
                 >
                     <div className="min-h-screen overflow-y-scroll px-1 text-center md:mx-8">
                         <Transition.Child
@@ -442,7 +442,7 @@ const CheckOutPage = ({ className = "min-h-screen relative" }) => {
                             leaveTo="opacity-0 scale-95"
                         >
                             <div
-                                className={`w-full md:w-5/12 inline-block mt-2 mb-14 text-left align-middle transition-all transform bg-white border border-black border-opacity-5 shadow-xl rounded-2xl sm:my-8 dark:bg-neutral-800 dark:border-neutral-700 text-neutral-900 dark:text-neutral-300`}
+                                className={`w-full md:w-5/12 inline-block mt-2 mb-14 text-left align-middle transition-all transform border border-black border-opacity-5 shadow-xl rounded-2xl sm:my-8 dark:bg-neutral-800 dark:border-neutral-700 text-neutral-300 dark:text-neutral-300`}
                             >
                                 <div className="py-2 flex flex-col items-start relative">
                                     <Dialog.Title className="flex justify-end w-full">
@@ -601,7 +601,7 @@ const CheckOutPage = ({ className = "min-h-screen relative" }) => {
                                                     {routeData.guests}
                                                 </p>
                                             </div>
-                                            <div className="text-neutral-600 dark:text-neutral-400 text-sm">
+                                            <div className="text-neutral-300 dark:text-neutral-400 text-sm">
                                                 <span className="flex-1">
                                                     {formState.extrasArr.map((item: any, index: any) => (
                                                         <div

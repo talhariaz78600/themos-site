@@ -114,7 +114,6 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                         </div>
                         <div className="min-h-screen px-4 text-center">
                         {/* Close button */}
-
                         {/* This element is to center the modal contents */}
                         <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
 
