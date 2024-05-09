@@ -100,28 +100,30 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
 
     const renderModalPhotos = () => {
         return (
-            <Dialog
-                as="div"
-                className="inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
-                onClose={onClose}
-                open={isOpen}
-            >
-                <div className="min-h-screen px-4 text-center">
-                    <Dialog.Overlay className="fixed inset-0 bg-[#101726]" />
-                    {/* Close button */}
-                    <div className="absolute  md:top-6  z-max">
-                    <i className="fa-regular fa-circle-xmark text-white text-2xl" onClick={onClose}></i>
-                    </div>
+            <>
+                <Dialog
+                    as="div"
+                    className="fixed left-0 top-0 z-[1055]  h-full w-full overflow-y-auto overflow-x-hidden outline-none bg-[#101726] text-neutral-200 hiddenScrollbar"
+                    onClose={onClose}
+                    open={isOpen}
+                >
+                    <div className="min-h-screen px-4 text-center">
+                        <Dialog.Overlay className="fixed inset-0 bg-[#101726]" />
+                        {/* Close button */}
+                        <div className="absolute top-6  z-max">
+                            <i className="fa-regular fa-circle-xmark text-white text-2xl" onClick={onClose}></i>
+                        </div>
 
-                    {/* This element is to center the modal contents */}
-                    <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
+                        {/* This element is to center the modal contents */}
+                        <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
 
-                    {/* Modal content */}
-                    <div className="relative inline-block w-full max-w-5xl py-8 h-screen align-middle mx-auto">
-                        {renderSlider()}
+                        {/* Modal content */}
+                        <div className="relative inline-block w-full max-w-5xl py-8 h-screen align-middle mx-auto">
+                            {renderSlider()}
+                        </div>
                     </div>
-                </div>
-            </Dialog>
+                </Dialog>
+            </>
         );
     };
 
