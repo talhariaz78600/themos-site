@@ -106,13 +106,14 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                     className="fixed left-0 top-0 z-[1055]  h-full w-full overflow-y-auto overflow-x-hidden outline-none bg-[#101726] text-neutral-200 hiddenScrollbar"
                     onClose={onClose}
                     open={isOpen}
+                    
                 >
-                    <div className="min-h-screen px-4 text-center">
-                        <Dialog.Overlay className="fixed inset-0 bg-[#101726]" />
-                        {/* Close button */}
-                        <div className="absolute top-6  z-max">
-                            <i className="fa-regular fa-circle-xmark text-white text-2xl" onClick={onClose}></i>
+                        <Dialog.Overlay className="inset-0 bg-[#101726]" />
+                        <div className="mt-5 mx-2 z-max" onClick={onClose}>
+                            <i className="fa-regular fa-circle-xmark text-white text-2xl"></i>
                         </div>
+                        <div className="min-h-screen px-4 text-center">
+                        {/* Close button */}
 
                         {/* This element is to center the modal contents */}
                         <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
