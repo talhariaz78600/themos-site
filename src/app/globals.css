@@ -764,3 +764,72 @@ listingSection__wrap:is(.dark *) {
     padding: 1rem;
   }
 }
+
+.scrollbar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+}
+.model-content{
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 80rem; /* Equivalent to max-w-5xl in Tailwind (5xl = 80rem) */
+  padding-top: 8rem; /* Equivalent to py-8 in Tailwind */
+  height: 100vh; /* Equivalent to h-screen in Tailwind */
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.close-button {
+  position: absolute;
+  top: 0; /* Positioned at the top of its closest positioned ancestor */
+  z-index: 50; /* Default z-index for stacking order */
+}
+
+/* Media query for medium (md) screen size */
+@media (min-width: 768px) {
+  /* Style for the button within the media query */
+  .close-button {
+      top: 1.5rem; /* Adjusted top position for medium screens */
+  }
+}
+
+
+
+.container-a{
+  /* Center the container horizontally */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* Set padding and maximum width */
+  padding-left: 20px;
+  padding-right: 20px;
+   /* Adjust max-width as needed */
+
+  /* Flex properties for positioning */
+  display: flex;
+  justify-content: space-between; /* Spread items apart horizontally */
+
+  /* Adjust vertical alignment on extra large screens */
+  position: relative;/* Start at the bottom */
+  transform: translateY(-50%); /* Move up by half of its own height */
+
+  /* Responsive adjustments */
+ 
+}
+
+@media (min-width: 1280px) {
+  .container-a{
+
+  transform: translateY(-50%);
+}}

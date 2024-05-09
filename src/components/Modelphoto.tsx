@@ -69,7 +69,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                                 <NcImage
                                     src={item}
                                     containerClassName="w-full h-full"
-                                    className="w-full h-[400px]"
+                                    className="w-full h-[350px]"
                                     id={`Modal-photo-${index}`}
                                 />
                             </li>
@@ -102,7 +102,7 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
         return (
             <Dialog
                 as="div"
-                className=" inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
+                className="inset-0 z-max overflow-y-auto dark bg-[#101726] text-neutral-200 hiddenScrollbar"
                 onClose={onClose}
                 open={isOpen}
             >
