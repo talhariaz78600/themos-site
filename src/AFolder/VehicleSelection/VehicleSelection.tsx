@@ -36,11 +36,10 @@ const VehicleSelection: FC<any> = ({ data }) => {
       });
       
       
-      setUniqueId("web");
       
       const clonedList = data;
-      if(window.innerWidth>640){
-
+      if(window.innerWidth > 640){
+        setUniqueId("web");
         const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
         console.log(suggestedVehicle);
         const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
@@ -49,6 +48,7 @@ const VehicleSelection: FC<any> = ({ data }) => {
        
         setVehicleList(filtered);
       }else{
+        setUniqueId("mobile");
         const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
         console.log(suggestedVehicle);
         const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
@@ -61,7 +61,7 @@ const VehicleSelection: FC<any> = ({ data }) => {
       setState(routeDetailsAndPrices);
     }
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  }, [data]);
   const setSuggestedVehicle = (guests:number) => {
     const vehicle = guests <= 4 ? vehicleList[0] :
         guests <= 8 ? vehicleList[3] : vehicleList[5];
