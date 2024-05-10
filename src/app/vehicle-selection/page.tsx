@@ -8,6 +8,8 @@ const page =async () => {
                 headers: {
                   "Content-Type": "application/json"
                 }
+                // ,
+                // cache: 'no-store'
               });
               const response=await res.json();
 
@@ -40,7 +42,7 @@ const page =async () => {
     // console.log(mat);
   return (
     <div>
-      <VehicleSelection data={vehicles }/>
+      <VehicleSelection data={vehicles}/>
     </div>
   );
 }
