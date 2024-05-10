@@ -1,5 +1,6 @@
 import React from 'react';
 import TourMainPage from "../../components/tours/TourMainPage"
+import MainNav1 from "../../components/Header/MainNav1"
 const page = async () => {
     const fetchData = async () => {
         try {
@@ -59,6 +60,7 @@ const page = async () => {
 
     return (
         <div>
+            {/* <MainNav1 isTop={false} /> */}
             <TourMainPage tourdata={data1} fleetdata={data} />
         </div>
     );

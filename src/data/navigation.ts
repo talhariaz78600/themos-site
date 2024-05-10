@@ -187,7 +187,7 @@
 
 // export const NAVIGATION_DEMO: NavItemType[] = [
 //   {
-//     id: ncNanoId(),
+//     id: 1,
 //     href: "/",
 //     name: "Home",
 //     // type: "dropdown",
@@ -195,14 +195,14 @@
 //     // isNew: true,
 //   },
 //   {
-//     id: ncNanoId(),
+//     id: 2,
 //     href: "/tours",
 //     name: "Tours",
 //     // type: "megaMenu",
 //     // megaMenu: megaMenuDemo,
 //   },
 //   {
-//     id: ncNanoId(),
+//     id: 3,
 //     href: "/#transfers",
 //     name: "Transfers",
 //     // type: "megaMenu",

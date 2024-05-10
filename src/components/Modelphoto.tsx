@@ -109,11 +109,12 @@ const ModalPhotos: FC<ModalPhotosProps> = ({
                     
                 >
                         <Dialog.Overlay className="inset-0 bg-[#101726]" />
-                        <div className="mt-5 mx-2 z-max" onClick={onClose}>
+                        <div className=" mt-2 mx-4 z-max" onClick={onClose}>
                             <i className="fa-regular fa-circle-xmark text-white text-2xl"></i>
                         </div>
                         <div className="min-h-screen px-4 text-center">
                         {/* Close button */}
+
                         {/* This element is to center the modal contents */}
                         <span className="inline-block h-screen align-middle" aria-hidden="true">&#8203;</span>
 

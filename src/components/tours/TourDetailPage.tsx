@@ -433,7 +433,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                 onInputDone={()=>{}}
                                 autoFocus={originFocus}
                                 onFocusChange={(e:any) => setOriginFocus(e)}
-                                className="h-20"
+                                className="h-20 text-neutral-200"
                                 setIsModalOpen={setIsModalOpen}
                                 // Id="tour1"
                             />
@@ -450,7 +450,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                                     onInputDone={()=>{}}
                                     autoFocus={originFocus}
                                     onFocusChange={(e:any) => setOriginFocus(e)}
-                                    className="h-20"
+                                    className="h-20 text-neutral-200"
                                     setIsModalOpen={setIsModalOpen}
                                     // Id="tour2"
                                 />
@@ -623,7 +623,7 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                             ))}
 
                         <div
-                            className="absolute hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 cursor-pointer hover:bg-neutral-200 z-10"
+                            className="hidden md:flex md:items-center md:justify-center left-3 bottom-3 px-4 py-2 rounded-xl bg-neutral-100 text-neutral-500 cursor-pointer hover:bg-neutral-200 z-10"
                             onClick={() => handleOpenModal(0)}
                         >
                             <svg
@@ -666,17 +666,6 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                     {tourStepDescription()}
                     {tour.generalDescription && tourGeneralDescription()}
                     {renderSection3()}
-                    {/*{renderSectionCheckIndate()}*/}
-
-                    {/*Host Information*/}
-                    {/*{renderSection5()}*/}
-
-                    {/*Reviews*/}
-                    {/*{renderSection6()}*/}
-
-                    {/*MAP*/}
-                    {/*{renderSection7()}*/}
-
                     {renderSection8()}
                 </div>
                 {bookingWidget("hidden")}

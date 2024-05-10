@@ -133,14 +133,14 @@ const TourLocationInput = ({
           <span
             onClick={() => handleSelectLocation(item)}
             key={item.id}
-            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-100 dark:hover:bg-neutral-700 cursor-pointer"
+            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 bg-[#29334b] dark:hover:bg-neutral-700 cursor-pointer"
           >
             <div className="flex gap-2 items-center">
               <div>
                 <span className="block text-neutral-400">{item.icon}</span>
               </div>
               <div>
-                <div className="block font-medium text-neutral-700 dark:text-neutral-200">
+                <div className="block font-medium text-neutral-200 dark:text-neutral-200">
                   {item.title}
                 </div>
                 <div className="text-sm text-gray-400">{item.subtitle}</div>
@@ -163,7 +163,7 @@ const TourLocationInput = ({
             {value?.title}
           </label>
           <input
-            className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-800 dark:placeholder-neutral-200 truncate`}
+            className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-200 dark:placeholder-neutral-200 truncate`}
             placeholder={placeHolder}
             value={value == null ? "" : value.title}
             onChange={(e) => handleChange(e)}
@@ -184,7 +184,7 @@ const TourLocationInput = ({
         </div>
       </div>
       {showPopover && (
-        <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-white dark:bg-neutral-800 top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
+        <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-[#101726] dark:bg-neutral-800 top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
           {renderRecentSearches()}
         </div>
       )}
