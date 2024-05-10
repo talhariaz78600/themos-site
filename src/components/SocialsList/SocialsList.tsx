@@ -24,9 +24,10 @@ const SocialsList1: FC<SocialsList1Props> = ({ className = "space-y-2.5" }) => {
     return (
       <a
         href={"mailto:" + item.href}
-        className="flex items-center text-sm  hover:text-black text-neutral-300 dark:hover:text-white hover:text-white leading-none space-x-2 group"
+        className="flex  items-center text-sm   dark:hover:text-white cursor-pointer hover:text-white leading-none space-x-2 group"
         key={index}
         title={`Share on ${item.name}`}
+        style={{color:"rgb(229 231 233)"}}
       >
         <i className={`text-xl ${item.icon}`} aria-hidden={true}></i>
         <span className="hidden lg:block text-sm">{item.name}</span>

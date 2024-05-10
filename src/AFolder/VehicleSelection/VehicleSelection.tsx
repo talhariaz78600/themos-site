@@ -1,6 +1,6 @@
 "use client"
 import React, { FC, useEffect, useRef, useState } from "react";
-import BgGlassmorphism from "../../components/BgGlassmorphism";
+// import BgGlassmorphism from "../../components/BgGlassmorphism";
 import VehicleSelectionSlider from "./VehicleSelectionSlider";
 import SelectStepsForm from "./SelectStepsForm";
 import * as generalMethods from "../../components/GeneralMethods";
@@ -13,6 +13,12 @@ const VehicleSelection: FC<any> = ({ data }) => {
   // console.log(data);
   const routeDetailsAndPrices = generalMethods.getRouteDetailsAndPrice();
   useEffect(() => {
+    const handleResize = () => window.innerWidth;
+    window.addEventListener('resize', handleResize);
+    console.log(window.innerWidth)
+    // Set initial width on first render (optional)
+    // setWidth(window.innerWidth);
+
     if (routeDetailsAndPrices) {
       // Only Local Storage Data Logic
       data.forEach((vehicle: any) => {
@@ -28,22 +34,33 @@ const VehicleSelection: FC<any> = ({ data }) => {
           vehicle.uuid = null;
         }
       });
-
-
+      
+      
       setUniqueId("web");
       
       const clonedList = data;
-      
-      const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
-      console.log(suggestedVehicle);
-      const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
-      console.log(removeSuggested)
-      const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
-      filtered.unshift(suggestedVehicle)
-      setVehicleList(filtered);
+      if(window.innerWidth>640){
 
+        const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
+        console.log(suggestedVehicle);
+        const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
+        console.log(removeSuggested)
+        const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
+       
+        setVehicleList(filtered);
+      }else{
+        const suggestedVehicle = setSuggestedVehicle(routeDetailsAndPrices.guests)
+        console.log(suggestedVehicle);
+        const removeSuggested = clonedList.filter((item: any) => item.id !== suggestedVehicle.id);
+        console.log(removeSuggested)
+        const filtered = removeSuggested.filter((item: any) => item.MaxPeople > routeDetailsAndPrices.guests);
+        filtered.unshift(suggestedVehicle)
+        setVehicleList(filtered);
+      }
+      
       setState(routeDetailsAndPrices);
     }
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
   const setSuggestedVehicle = (guests:number) => {
     const vehicle = guests <= 4 ? vehicleList[0] :

@@ -37,7 +37,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
             <span className="block text-xl text-white font-semibold">
               In Travel Industry Since 1983
             </span>
-            <span className="block mt-5 text-neutral-400 dark:text-neutral-400">
+            <span className="block mt-5  dark:text-neutral-400" style={{color:"rgb(155 163 175)"}}>
               With a free listing, you can advertise your rental with no upfront
               costs
             </span>
@@ -47,7 +47,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
             <span className="block text-white text-xl font-semibold">
               Top Of The Line Fleet
             </span>
-            <span className="block mt-5 text-neutral-400 dark:text-neutral-400">
+            <span className="block mt-5 dark:text-neutral-400" style={{color:"rgb(155 163 175)"}}>
               Millions of people are searching for unique places to stay around
               the world
             </span>
@@ -57,7 +57,7 @@ const SectionOurFeatures: FC<SectionOurFeaturesProps> = ({
             <span className="block text-white text-xl font-semibold">
               Secure and simple
             </span>
-            <span className="block mt-5 text-neutral-400 dark:text-neutral-400">
+            <span className="block mt-5 text-neutral-400 dark:text-neutral-400" style={{color:"rgb(155 163 175)"}}>
               A Holiday Lettings listing gives you a secure and easy way to take
               bookings and payments online
             </span>

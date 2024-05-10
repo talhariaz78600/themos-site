@@ -77,15 +77,15 @@ const widgetMenus: WidgetFooterMenu[] = [
 const Footer: React.FC = () => {
     const renderWidgetMenuItem = (menu: WidgetFooterMenu, index: number) => {
         return (
-            <div key={index} className="text-sm ref-footer px-2">
-                <p className="font-semibold  mb-5 text-neutral-200 leading-relaxed">
+            <div key={index} className="ref-footer px-2">
+                <p className="font-semibold text-sm   mb-5  leading-relaxed" style={{color:"rgb(229 231 233)",lineHeight: "1.25rem"}} >
                     {menu.title}
                 </p>
                     <ul>
 
                     {menu.menus.map((item, index) => (
                         <Link key={index}   href={item.href}>
-                            <li className="my-3 text-sm text-neutral-30 hover:text-white">{item.label}</li>
+                            <li className="my-4 text-sm  hover:text-white" style={{color:"rgb(229 231 233)", lineHeight: "1.25rem"}}>{item.label}</li>
                         </Link>
                     ))} 
                     </ul>
@@ -106,10 +106,10 @@ const Footer: React.FC = () => {
                 </div>
                 {widgetMenus.map(renderWidgetMenuItem)}
             </div>
-            <p className="text-center text-neutral-200 pt-8  leading-relaxed">
+            <p className="text-center   pt-8  leading-relaxed" style={{color:"rgb(229 231 233)", lineHeight: "1.25rem"}}>
                 Member Of The Greek Tourism Organization
             </p>
-            <p className="text-center text-neutral-200 mt-2  leading-relaxed">Registration Number: O206E81000524201</p>
+            <p className="text-center  mt-2  leading-relaxed" style={{color:"rgb(229 231 233)" ,lineHeight: "1.25rem"}}>Registration Number: O206E81000524201</p>
         </div>
     );
 };

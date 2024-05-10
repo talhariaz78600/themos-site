@@ -40,14 +40,15 @@ const VehicleSelectionButton: React.FC<Props> = ({ label, selectedVehicle }) => 
     <button
       onClick={() => buttonClick(selectedVehicle)}
       type="button"
-      className="h-12 md:h-12 md:px-4 w-full rounded-lg bg-blue-700 hover:bg-primary-800 flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
-    >
+      className="h-12 md:h-12 md:px-4 w-full rounded-lg  hover:bg-[#5946e2] flex items-center justify-center text-neutral-50 focus:outline-none text-base font-semibold"
+      style={{backgroundColor:"#5246e2"}}
+   >
       {!loading ? (
         <span>{label}</span>
       ) : (
         <svg
           role="status"
-          className="w-6 h-6 text-gray-400 animate-spin dark:text-gray-400 fill-bule-700"
+          className="w-6 h-6 text-gray-400 animate-spin dark:text-gray-400 fill-[#5946e2]"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"

@@ -52,7 +52,7 @@ const VehicleSelectionSuggestedVehicle: React.FC<VehicleSelectionSuggestedVehicl
           </div>
         </div>
         <div className="hidden md:flex xl:flex flex-col md:flex-row justify-between items-start py-4  space-y-2">
-          <div className="object-cover w-[200px]  h-full">
+          <div className="object-cover w-[250px]  h-full">
             <div className="relative">
               {vehicle &&images && <Modal galleryImgs={images} />}
             </div>
@@ -67,25 +67,25 @@ const VehicleSelectionSuggestedVehicle: React.FC<VehicleSelectionSuggestedVehicl
             <h2 className="text-xl font-semibold line-clamp-1 py-2">{vehicle.VehicleName}</h2>
             <h2 className="text-3xl line-clamp-1 py-2">{vehicle.CategoryName}</h2>
             <StartRating reviewCount={vehicle.reviews} point={vehicle.rating} />
-            <div className="text-sm text-neutral-500 py-2 dark:text-neutral-400 font-normal flex items-center">
+            <div className="text-sm py-2 dark:text-neutral-400 font-normal flex items-center" style={{ color:"rgb(155 163 175)"}}>
               <FiUser size={18} />
               <span className="px-3">Seats {vehicle.MaxPeople} people</span>
             </div>
-            <div className="text-sm  py-2 text-neutral-500 dark:text-neutral-400 font-normal flex items-center">
+            <div className="text-sm  py-2  dark:text-neutral-400 font-normal flex items-center" style={{ color:"rgb(155 163 175)"}}>
               <FiBriefcase size={18} />
               <span className="px-3 ">Fits {vehicle.MaxLuggage} suitcases</span>
             </div>
           </div>
           <div className="flex-col items-start space-y-3 w-[250px] md:w-max">
-            <div className="text-sm text-neutral-500 dark:text-neutral-400 font-normal flex items-center">
+            <div className="text-sm  dark:text-neutral-400 font-normal flex items-center" style={{ color:"rgb(155 163 175)"}}>
               <BsCalendarX size={18} color="#556CE4" />
               <span className="px-3 py-2">Cancellation up to day before</span>
             </div>
-            <div className="text-sm text-neutral-500 dark:text-neutral-400 font-normal flex items-center">
+            <div className="text-sm  dark:text-neutral-400 font-normal flex items-center" style={{ color:"rgb(155 163 175)"}}>
               <FaRegHandshake size={18} color="#556CE4" />
               <span className="px-3 py-2">Meet and greet at the spot</span>
             </div>
-            <div className="text-sm text-neutral-500 dark:text-neutral-400 font-normal flex items-center">
+            <div className="text-sm  dark:text-neutral-400 font-normal flex items-center" style={{ color:"rgb(155 163 175)"}}>
               <MdTimer size={18} color="#556CE4" />
               <span className="px-3 py-2">Free Waiting Time</span>
             </div>

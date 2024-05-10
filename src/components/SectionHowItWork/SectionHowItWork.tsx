@@ -37,7 +37,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({ className, isCenter }) =>
 
     return (
         <div className={`nc-SectionHowItWork ${className}  py-8 px-2 rounded-lg`} data-nc-id="SectionHowItWork">
-            <div className="max-w-2xl"><h2 className="text-3xl md:text-4xl font-semibold text-white">How To Book With Us</h2><span className="mt-2 md:mt-3 font-normal block text-base sm:text-xl text-neutral-400 dark:text-neutral-400">Keep calm &amp; travel on</span></div>
+            <div className="max-w-2xl"><h2 className="text-3xl md:text-4xl font-semibold text-white">How To Book With Us</h2><span className="mt-2 md:mt-3 font-normal block text-base sm:text-xl dark:text-neutral-400" style={{color:"rgb(155 163 175)"}}>Keep calm &amp; travel on</span></div>
             <div className="mt-20 relative grid md:grid-cols-3 gap-20">
                 <img className="hidden md:block absolute inset-x-0 top-10" src="/VectorHIW.svg" alt="VectorImg" />
                 {sectionHowItWorkProps.map((item) => (
@@ -45,7 +45,7 @@ const SectionHowItWork: FC<SectionHowItWorkProps> = ({ className, isCenter }) =>
                         <NcImage containerClassName="mb-8 max-w-[200px] mx-auto" className="" src={item.img} id={`section-how-it-work-${item.id}`} />
                         <div className="text-center mt-auto">
                             <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                            <span className="block mt-5 text-neutral-400 dark:text-neutral-400">
+                            <span className="block mt-5  dark:text-neutral-400" style={{color:"rgb(155 163 175)"}}>
                                 {item.desc}
                             </span>
                         </div>

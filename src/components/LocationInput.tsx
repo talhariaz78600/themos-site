@@ -140,17 +140,17 @@ const LocationInput: React.FC<LocationInputProps> = ({
                         <span
                             onClick={() => handleSelectLocation(item)}
                             key={item.id}
-                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-700 hover:bg-neutral-700 cursor-pointer"
+                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-700  cursor-pointer"
                         >
                             <div className="flex gap-2 items-center">
                                 <div>
-                                    <span className="block text-neutral-400">{item.icon}</span>
+                                    <span className="block" style={{  color:"rgb(155 163 175)"}}>{item.icon}</span>
                                 </div>
                                 <div>
-                                    <div className=" block font-medium text-neutral-200 dark:text-neutral-200">
+                                    <div className=" block font-medium text-neutral-200 dark:text-neutral-200" style={{ color:"rgb(229 231 233)"}}>
                                         {item.title}
                                     </div>
-                                    <div className=" text-sm text-gray-400">{item.subtitle}</div>
+                                    <div className=" text-sm text-gray-400" style={{  color:"rgb(155 163 175)"}}>{item.subtitle}</div>
                                 </div>
                             </div>
                         </span>
@@ -166,7 +166,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                 onClick={handlePopover}
                 id={`scroll-anc-location${Id}`}
                 className="flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  shadow-2xl rounded-full hover:bg-neutral-800 px-2 py-4"            >
-                <div className="text-neutral-400 dark:text-neutral-400">
+                <div className="" style={{ color:"rgb(155 163 175)"}}>
                 <i className="fa-solid fa-location-dot  text-[20px] px-3"></i>
                   </div>
                 <div className="flex-grow">
@@ -174,7 +174,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                         {"location-input" + (value?.title || "")}
                     </label>
                     <input readOnly className={`block w-full bg-transparent border-none focus:ring-0 p-0 focus:outline-none focus:placeholder-neutral-300 xl:text-lg font-semibold placeholder-neutral-200  dark:placeholder-neutral-200 truncate`} placeholder={placeHolder} value={value == null ? "" : value.title} onChange={handleChange} ref={inputRef} id={`location-input ${Id}`} />
-                    <span className="block mt-0.5 text-sm text-neutral-400 font-light ">
+                    <span className="block mt-0.5 text-sm  font-light " style={{  color:"rgb(155 163 175)"}}>
                         <span className="line-clamp-1">{value ? placeHolder : desc}</span>
                     </span>
                     {value && showPopover && <ClearDataButton onClick={() => setValue(null)} />}
@@ -186,7 +186,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                 </div>
             </div>
             {showPopover && (
-                <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-white dark:bg-neutral-800 top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
+                <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-[#101726] dark:bg-neutral-800 top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
                     {renderRecentSearches()}
                 </div>
             )}

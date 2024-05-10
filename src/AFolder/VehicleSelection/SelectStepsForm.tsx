@@ -58,7 +58,7 @@ const SelectStepsForm: React.FC<SelectStepsFormProps> = ({
     return (
       <div className="flex justify-between w-full px-4">
         <span>{stepLabel}</span>
-        <span className="text-neutral-500 hover:text-neutral-400 dark:hover:text-neutral-400">
+        <span className=" dark:hover:text-neutral-400" style={{ color:"rgb(155 163 175)"}}>
           Step {stepNumber} of 3
         </span>
       </div>

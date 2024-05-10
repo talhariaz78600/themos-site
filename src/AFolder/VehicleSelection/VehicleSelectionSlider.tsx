@@ -81,8 +81,8 @@ const VehicleSelectionSlider: FC<VehicleSelectionSliderProps> = ({
         />
         <div className="glide__track" data-glide-el="track">
           <ul className="glide__slides">
-            {vehicleData.map((car) => (
-              <VehicleCarouselCard key={car.id} data={car} />
+            {vehicleData.map((car:any) => (
+              <VehicleCarouselCard key={car.EnumId} data={car} />
             ))}
           </ul>
         </div>

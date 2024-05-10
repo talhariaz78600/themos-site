@@ -92,7 +92,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
         className={`flex cursor-pointer ${focused ? "nc-hero-field-focused" : ""
           }`}
       >
-        <div className="text-neutral-300 dark:text-neutral-400">
+        <div className="" style={{  color:"rgb(155 163 175)"}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nc-icon-field"
@@ -112,7 +112,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
           <span className="block xl:text-lg font-semibold">
             {startDate ? startDate.format("DD MMM") : "Date"}
           </span>
-          <span className="block mt-1 text-sm text-neutral-400 leading-none font-light">
+          <span className="block mt-1 text-sm  leading-none font-light" style={{  color:"rgb(155 163 175)"}}>
             {startDate ? "Date" : `Add date`}
           </span>
         </div>
@@ -137,24 +137,9 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
           </label>
 
           <div>
-            {/* <DatePicker
-              value={startDate ? startDate.toDate() : null}
-              onChange={handleDateChange}
-              id="single-date-picker"
-              format="yyyy-MM-dd"
-              minDate={new Date()}
-              calendarAriaLabel="Toggle calendar"
-              clearAriaLabel="Clear value"
-              calendarIcon={<CustomIcon />}
-              onFocus={(focus:any) => {
-                handleDateFocusChange(focus);
-              }}
-              // shouldCloseCalendar={shouldCloseCalendar}
-              openCalendarOnFocus={true}
-              // isOpen
-            /> */}
+            
             <Datetime  dateFormat="YYYY-MM-DD" open={focusedInput}    onChange={handleDateChange}  isValidDate={isValidDate}  timeFormat={false} />
-            <i className="fa-solid fa-calendar-days text-neutral-400 text-xl px-2 cursor-pointer" onClick={handleInputFocus}></i>
+            <i className="fa-solid fa-calendar-days  text-xl px-2 cursor-pointer"  style={{ color:"rgb(155 163 175)"}} onClick={handleInputFocus}></i>
 
           </div>
 
@@ -165,8 +150,6 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
     </div>
   );
 };
-const CustomIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 19 19" stroke="white" strokeWidth="2" className="react-date-picker__calendar-button__icon react-date-picker__button__icon"><rect fill="none" height="15" width="15" x="2" y="2"></rect><line x1="6" x2="6" y1="0" y2="4"></line><line x1="13" x2="13" y1="0" y2="4"></line></svg>
-);
+
 
 export default ExperiencesDateSingleInput;

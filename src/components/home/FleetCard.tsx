@@ -74,7 +74,7 @@ const FleetCard: FC<StayCardProps> = ({
               {title}
             </h2> */}
           </div>
-          <div className="flex items-center text-neutral-400 dark:text-neutral-400 text-sm space-x-2">
+          <div className="flex items-center  dark:text-neutral-400 text-sm space-x-2" style={{color:"rgb(155 163 175)"}}>
             {size === "default" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"

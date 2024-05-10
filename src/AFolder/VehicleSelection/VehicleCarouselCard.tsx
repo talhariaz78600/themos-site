@@ -23,19 +23,19 @@ const VehicleCarouselCard: React.FC<Props> = ({
 
   const renderSliderGallery = () => {
     return (
-      <div className="relative w-full rounded-2xl overflow-hidden">
+      <div className="relative py-4 w-full rounded-2xl overflow-hidden">
         <div className="m-4 pb-4">
-          <span className="text-sm px-4 py-4 text-neutral-400 dark:text-neutral-400 font-normal">
+          <span className="text-sm px-4 py-4  dark:text-neutral-400 font-normal" style={{ color:"rgb(155 163 175)"}}>
             {data.CategoryName}
           </span>
           <div className="relative">
-            {/* {data.Carousel_Images.length !== 0 && <Modal galleryImgs={data.Carousel_Images} />} */}
+            {data.Carousel_Images.length !== 0 && <Modal galleryImgs={data.Carousel_Images.map((item:any) => item.url)} />}
           </div>
         </div>
         <div className="aspect-w-16 aspect-h-9">
           <NcImage
             containerClassName="flex items-center justify-center"
-            className="w-full h-[250px] rounded-2xl"
+            className="w-full h-[200px] rounded-2xl"
             src={data.Image.url}
             // setLoading={setLoading}
             id="VehicleCouruselCard"
@@ -59,7 +59,7 @@ const VehicleCarouselCard: React.FC<Props> = ({
             </h2>
           </div>
           <StartRating reviewCount={data.reviews} point={data.rating} />
-          <div className="flex-col text-neutral-400 dark:text-neutral-400 text-sm space-y-2 py-4">
+          <div className="flex-col  dark:text-neutral-400 text-sm space-y-2 py-4" style={{ color:"rgb(155 163 175)"}}>
             <div className="flex items-center">
               <FiUser size={18} />
               <span className="px-3">{data.MaxPeople} people</span>
@@ -73,7 +73,7 @@ const VehicleCarouselCard: React.FC<Props> = ({
         <div className="w-14 border-b border-neutral-900 dark:border-neutral-800" />
         <div className="flex justify-between items-center">
           <span className="text-base font-semibold">
-            {size === "default" && <div className="text-sm text-neutral-400 dark:text-neutral-400 font-normal">One way price:</div>}
+            {size === "default" && <div className="text-sm  dark:text-neutral-400 font-normal" style={{ color:"rgb(155 163 175)"}}>One way price:</div>}
             {data.price == null ? "Request A Quote" : +data.price + " €"}
           </span>
         </div>
