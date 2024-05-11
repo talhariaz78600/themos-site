@@ -8,6 +8,8 @@ const page =async () => {
                 headers: {
                   "Content-Type": "application/json"
                 }
+                ,
+                cache: 'force-cache'
               });
               const response=await res.json();
 
