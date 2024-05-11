@@ -10,6 +10,8 @@ const page = async (context: { params: { day?: string, title?: string } }) => {
                 headers: {
                     "Content-Type": "application/json"
                 }
+                ,
+                cache: 'force-cache'
             });
             const response = await res.json();
 

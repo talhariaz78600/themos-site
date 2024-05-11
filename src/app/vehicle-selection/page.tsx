@@ -8,11 +8,9 @@ const page =async () => {
                 headers: {
                   "Content-Type": "application/json"
                 }
-                ,
-                cache: 'force-cache'
               });
               const response=await res.json();
-
+              // console.log(response)
              return response;
         } catch (error) {
             console.error("Error fetching GraphQL data:", error);
