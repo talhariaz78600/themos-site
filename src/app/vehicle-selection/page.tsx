@@ -7,8 +7,7 @@ const page =async () => {
                 method: "GET",
                 headers: {
                   "Content-Type": "application/json"
-                },
-                cache: 'force-cache'
+                }
               });
               const response=await res.json();
               // console.log(response)
