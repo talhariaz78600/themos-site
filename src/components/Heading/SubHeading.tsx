@@ -31,7 +31,7 @@ const SubHeading: React.FC<SubHeadingProps> = ({
         )}
       </div>
       {hasNextPrev && !isCenter && (
-        <div className="mt-4 flex justify-end sm:ml-2 sm:mt-0 flex-shrink-0  md:block xl:block">
+        <div className="mt-4 hidden flex justify-end sm:ml-2 sm:mt-0 flex-shrink-0  md:block xl:block">
           <NextPrev
             onClickNext={() => {}}
             onClickPrev={() => {}}
