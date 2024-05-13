@@ -23,7 +23,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
   useEffect(() => {
     const glide = new Glide(`.${UNIQUE_CLASS}`, {
       perView: 1,
-      autoplay: 5000
+      // autoplay: 5000
     });
 
     glide.on("run.before", () => {
@@ -74,7 +74,7 @@ const GallerySlider: FC<GallerySliderProps> = ({
                 <div className={ratioClass}>
                   <NcImage
                     src={item}
-                    className="h-[200px]"
+                    className="h-[220px]"
                     alt={`${index}`}
                     height="auto"
                     id={`car Image ${index}`}

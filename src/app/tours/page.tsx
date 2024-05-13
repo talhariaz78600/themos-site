@@ -16,7 +16,7 @@ const page = async () => {
                 title: vehicle.VehicleCategoryName,
                 galleryImgs: vehicle.Images.map((image: any) => image.url),
                 OrderInCarousel: vehicle.OrderInCarousel,
-                id: vehicle.id
+                id: vehicle.id+"12a"
             }));
             // console.log(fleetData);
             return fleetData;

@@ -92,7 +92,7 @@ const ExperiencesDateSingleInput: React.FC<ExperiencesDateSingleInputProps> = ({
         className={`flex cursor-pointer ${focused ? "nc-hero-field-focused" : ""
           }`}
       >
-        <div className="" style={{  color:"rgb(155 163 175)"}}>
+        <div className="  " style={{  color:"rgb(155 163 175)"}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="nc-icon-field"
