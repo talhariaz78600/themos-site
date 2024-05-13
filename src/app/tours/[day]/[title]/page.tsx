@@ -31,7 +31,7 @@ const page = async (context: { params: { day?: string, title?: string } }) => {
                 prices: vehicle.prices.map((i: any) => i.price),
                 id: vehicle.id
 
-            }));
+            })).reverse();
     const tour:any=data1.find((item:any)=>item.href===`${day}/${title}`)
     // console.log(tour);
 

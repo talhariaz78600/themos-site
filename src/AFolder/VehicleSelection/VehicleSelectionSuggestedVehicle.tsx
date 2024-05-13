@@ -52,7 +52,7 @@ const VehicleSelectionSuggestedVehicle: React.FC<VehicleSelectionSuggestedVehicl
           </div>
         </div>
         <div className="hidden md:flex xl:flex flex-col md:flex-row justify-between items-start py-4  space-y-2">
-          <div className="object-cover w-[250px]  h-full">
+          <div className="object-cover  h-full">
             <div className="relative">
               {vehicle &&images && <Modal galleryImgs={images} />}
             </div>

@@ -176,8 +176,8 @@ const VehicleSelection: FC<any> = ({ data }) => {
     // return () => window.removeEventListener('resize', handleResize);
   }, [data]);
   const setSuggestedVehicle = (guests:number) => {
-    const vehicle = guests <= 4 ? vehicleList[0] :
-        guests <= 8 ? vehicleList[3] : vehicleList[5];
+    const vehicle = guests <= 4 ? vehicleList[3] :
+        guests <= 8 ? vehicleList[0] : vehicleList[5];
     setSuggested(vehicle);
 
     return vehicle;

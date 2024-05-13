@@ -140,7 +140,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                         <span
                             onClick={() => handleSelectLocation(item)}
                             key={item.id}
-                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-neutral-700  cursor-pointer"
+                            className="flex my-4 md:my-0 px-4 sm:px-8 items-center space-x-2 sm:space-x-4  sm:py-5 hover:bg-[#0e1420] cursor-pointer"
                         >
                             <div className="flex gap-2 items-center">
                                 <div>
@@ -165,7 +165,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
             <div
                 onClick={handlePopover}
                 id={`scroll-anc-location${Id}`}
-                className="flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  shadow-2xl rounded-full hover:bg-neutral-800 px-2 py-4"            >
+                className="flex flex-1 relative [ nc-hero-field-padding ] flex-shrink-0 items-center space-x-3 cursor-pointer focus:outline-none text-left  shadow-2xl rounded-full hover:bg-[#101726] px-2 py-4"            >
                 <div className="" style={{ color:"rgb(155 163 175)"}}>
                 <i className="fa-solid fa-location-dot  text-[20px] px-3"></i>
                   </div>
@@ -186,7 +186,7 @@ const LocationInput: React.FC<LocationInputProps> = ({
                 </div>
             </div>
             {showPopover && (
-                <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-[#101726] dark:bg-neutral-800 top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
+                <div className="absolute left-0 z-50 w-full min-w-[300px] sm:min-w-[500px] bg-[#101726]  top-full mt-4 py-3 sm:py-2 rounded-3xl shadow-xl max-h-96 overflow-y-auto">
                     {renderRecentSearches()}
                 </div>
             )}
