@@ -55,44 +55,6 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
 
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-    // Add types for windowSize state
-    // interface WindowSize {
-    //     windowHeight: number;
-    //     windowWidth: number;
-    // }
-
-    // const [windowSize, setWindowSize] = useState<WindowSize>({
-    //     windowHeight: typeof window !== `undefined` ? window.innerHeight : 0,
-    //     windowWidth: typeof window !== `undefined` ? window.innerWidth : 0,
-    // });
-
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //         setWindowSize({
-    //             windowHeight: window.innerHeight,
-    //             windowWidth: window.innerWidth,
-    //         });
-    //     };
-
-    //     window.addEventListener("resize", handleResize);
-
-    //     return () => {
-    //         window.removeEventListener("resize", handleResize);
-    //     };
-    // }, []);
-
-    // const getDaySize = (): number | undefined => {
-    //     if (windowSize.windowWidth <= 375) {
-    //         return 34;
-    //     }
-    //     if (windowSize.windowWidth <= 500) {
-    //         return undefined;
-    //     }
-    //     if (windowSize.windowWidth <= 1280) {
-    //         return 56;
-    //     }
-    //     return 48;
-    // };
 
     const handleOpenModal = (index: number) => {
         setIsOpen(true);
@@ -127,18 +89,6 @@ const TourDetailPage: React.FC<TourDetailPageProps> = ({ tour, suggestedTours })
                     </span>
                 </div>
 
-                {/* 4 HOSTED BY*/}
-                {/*      <div className="flex items-center">*/}
-                {/*          <Avatar hasChecked sizeClass="h-10 w-10" radius="rounded-full"/>*/}
-                {/*          <span className="ml-2.5 text-neutral-500 dark:text-neutral-400">*/}
-                {/*  Hosted by{" "}*/}
-                {/*              <span className="text-neutral-900 dark:text-neutral-200 font-medium">*/}
-                {/*    Kevin Francis*/}
-                {/*  </span>*/}
-                {/*</span>*/}
-                {/*      </div>*/}
-
-                {/* 5 */}
                 <div className="w-full border border-neutral-700 dark:border-neutral-700 my-2" />
 
                 {/* 6 */}

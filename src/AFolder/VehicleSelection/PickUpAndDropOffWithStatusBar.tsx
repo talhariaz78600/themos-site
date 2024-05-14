@@ -39,17 +39,17 @@ const PickUpAndDropOffWithStatusBar = ({
         return (
             <div className="w-full relative mt-2 px-8 flex flex-col justify-center rounded-lg  shadow-xl dark:shadow-2xl ">
                 {/* Progress Bar */}
-                <div className="w-full progresvehicalbar-top  bg-gray-200 md:h-5 h-3 mb-4 mt-4 rounded-full">
+                <div className="w-full progresvehicalbar-top my-4  bg-white md:h-5 h-3 mb-4 mt-4 rounded-full">
                     <div
-                        className="bg-gradient-to-r progresvehicalbar-inner to-pink-500 h-3 md:h-5 rounded-full"
+                        className="progresvehicalbar-inner to-pink-500 h-3 md:h-5 rounded-full"
                         style={{ width: "66.66%" }}
                     ></div>
                 </div>
                 {/* Selected Car Area */}
                 <div className="flex flex-col justify-between items-start mt-5 pt-4 w-full space-y-2">
                     {/* Transfer Start-End */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:items-start space-y-8 md:space-y-0 md:py-0 py-6 w-full">
-                        <div className="location items-start space-y-2">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:items-start space-y-8 md:space-y-0 md:py-0 py-4 w-full">
+                        <div className="location">
                             <p className="text-sm  text-neutral-500 dark:text-neutral-400 font-normal">
                                 Pick Up Location:
                             </p>
@@ -57,7 +57,7 @@ const PickUpAndDropOffWithStatusBar = ({
                                 {transferRouteData?.origin.title}
                             </p>
                         </div>
-                        <div className="flex flex-col xl:flex-row justify-between items-end xl:space-x-4 space-y-10 md:space-y-6 xl:space-y-0">
+                        <div className="time-input">
                             <div className="w-full relative h-14 flex items-center">
                                 <Input
                                     id="a_f_n"
@@ -78,32 +78,43 @@ const PickUpAndDropOffWithStatusBar = ({
                                 </Label>
                             </div>
                             <div className="space-y-1 w-full relative">
-                                <div className="relative h-14 flex">
-
-                                    {/* Middle Section with CustomTimePicker */}
-                                    <div className="flex items-center pl-8 flex-grow my-4 text-gray-400">
-                                        <span className={`${errorState.pickUpTime != "" ? "text-red-500"
-                                            :
-                                            "text-neutral-200"}  mr-3 ml-2`}>pickUpTime</span>
+                                <div className="relative h-14 flex items-center">
+                                    <div className="pointer-events-none absolute left-0 px-4 text-gray-400">
+                                        {/* <FiClock size={20} className="pointer-events-none" /> */}
+                                    </div>
+                                    <div className="absolute inset-y-2 left-0 z-20 flex items-center pl-8 w-full">
                                         <CustomTimePicker
                                             value={landingTime}
                                             handleTimeChange={onLandingTimeChange}
                                         />
                                     </div>
-
+                                    {/* <Input
+                                        readOnly
+                                        id="landingTime"
+                                        placeholder="landingTime"
+                                        value={landingTime ? timeFormat : ""}
+                                        className="px-9 cursor-pointer ml-2"
+                                    /> */}
+                                    <Label
+                                        htmlFor="well"
+                                        isError={errorState.landingTime}
+                                        className="ml-4 pt-0.5 w-full"
+                                        noLabel=""
+                                    >
+                                       .
+                                    </Label>
                                 </div>
-
                             </div>
                         </div>
                     </div>
 
                     {/* Transfer Start-End Input */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:pt-12 py-6 space-y-8 md:space-y-0 w-full  items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:pt-12 py-4 space-y-8 md:space-y-0 w-full  items-start">
                         <div className="location items-start">
                             <p className="text-sm text-neutral-500 dark:text-neutral-400 font-normal">
                                 Drop Off Location:
                             </p>
-                            <p className="text-sm mt-2 font-semibold">
+                            <p className="text-sm font-semibold">
                                 {transferRouteData?.destination.title ?? transferRouteData?.origin.title}
                             </p>
                         </div>

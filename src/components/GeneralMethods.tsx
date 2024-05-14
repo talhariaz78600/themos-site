@@ -90,7 +90,7 @@ export const saveRouteAndPrices = (
             guests: guests,
             fetchedPrices: apiResponse.data,
         });
-
+        localStorage.clear();
         localStorage.setItem('routeDetailsAndPrices', saveOnLocal);
     }
 };

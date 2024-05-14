@@ -42,7 +42,7 @@
     js-tokens "^4.0.0"
     picocolors "^1.0.0"
 
-"@babel/runtime@^7.12.5", "@babel/runtime@^7.16.7", "@babel/runtime@^7.18.3":
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.18.3":
   version "7.24.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.24.4.tgz#de795accd698007a66ba44add6cc86542aff1edd"
   integrity sha512-dkxf7+hn8mFBwKjs9bvBlArzLVxVbS8usaPUDd5p2a9JCL9tB8OaOVN1isD4+Xyk4ns89/xeOmbQvgdK7IIVdA==
@@ -150,25 +150,6 @@
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.5.2.tgz#310fe90cb5a8dee9698833171b98e7835404293d"
   integrity sha512-hRILoInAx8GNT5IMkrtIt9blOdrqHOnPBH+k70aWUAqPZPgopb9G5EQJFpaBx/S8zp2fC+mPW349Bziuk1o28Q==
-
-"@geist-ui/react@^2.2.5":
-  version "2.2.5"
-  resolved "https://registry.yarnpkg.com/@geist-ui/react/-/react-2.2.5.tgz#769f76d70e988cd1d75ab8499e71972804535e75"
-  integrity sha512-yPBAweYVh5HXXJ6W5ont/z6UObbfsjesg0/KTfcJzc64/zjGgp+wv2zLIdReGOTAj2R4XWoNSirNGGbQnwFe6w==
-  dependencies:
-    "@babel/runtime" "^7.16.7"
-
-"@geist-ui/style@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@geist-ui/style/-/style-2.0.0.tgz#5a1127d35b702acacd542c6218eff2aa9c70e93c"
-  integrity sha512-42FIVfbulNYz2SuA4zC3gPbyP5bhSwPvvFUPXgmDrAacFDDZo0lx3ZuXMUK7Z2UfIQNQc3RipX9bLXrmxmosKw==
-  dependencies:
-    "@geist-ui/themes" "^1.1.0"
-
-"@geist-ui/themes@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@geist-ui/themes/-/themes-1.1.0.tgz#3644195ae699eb904ccf29677e8ab51b050d74d1"
-  integrity sha512-N13wlIOeEU8QkOu4mxg5AcF7DpfLNBcZhW/YDMRVEch0ehPl8Y+g4/JW1A4uT6E5W3USSybslmhjFZ7HH8T2LA==
 
 "@glidejs/glide@^3.6.0":
   version "3.6.0"

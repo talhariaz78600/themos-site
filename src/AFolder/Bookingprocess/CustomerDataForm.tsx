@@ -322,8 +322,8 @@ const CustomerDataForm: FC = () => {
   return (
     <div className={`nc-CustomerDataFormPage flex flex-col-reverse lg:flex-col relative`} data-nc-id="CustomerDataFormPage">
       {/* <BgGlassmorphism /> */}
-      <div className="container relative space-y-10 mb:space-y-24 mb-4 lg:space-y-32 min-h-screen">
-        <div className="relative z-10 mb-0 md:mb-12 lg:mb-0 lg:mt-20 w-full">
+      <div className="container customer-form">
+        <div className="inner-customer-form">
           {!routeData?.tourTitle ? (
 
             <TransferSearchForm sendToParent={() => { }} haveDefaultValue={routeData} btnType={"filter"} checkUpdates={checkUpdates} />
@@ -331,7 +331,7 @@ const CustomerDataForm: FC = () => {
             <div></div>
           )}
         </div>
-        <div className="flex-col items-center w-full relative pt-0 mb:pt-4 pb-4">
+        <div className="flex-col items-center w-full relative pt-0 mb:pt-4 mt-20 pb-4">
           {routDataAndProgressBar()}
           <div className="relative pb-6 pt-6">
             <div className="w-full relative mt-2 py-16 px-8 flex flex-col justify-center rounded-lg shadow-xl dark:shadow-2xl bg-[rgb(17 24 41)] divide-y divide-[rgb(17 24 41)] md:divide-y-0">

@@ -11,7 +11,8 @@ export default function CustomTimePicker({ value, handleTimeChange }) {
   
     // Create options for formatting the time with AM/PM
     const options = {
-      hour: 'numeric',    // Display hours as 1-12
+      hour: 'numeric',  
+       // Display hours as 1-12
       minute: '2-digit',  // Display minutes with leading zero (e.g., "08")
       hour12: true        // Use 12-hour clock with AM/PM
     };
@@ -32,7 +33,7 @@ export default function CustomTimePicker({ value, handleTimeChange }) {
     <TimePicker
       onChange={handleChange}
       value={value}
-      
+      id={"well"}
       className={"text-white w-48"}
       clearIcon={null}
       format="HH:mm" // Display time in 24-hour format

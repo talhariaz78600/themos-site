@@ -153,7 +153,8 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
 
   const renderForm = () => {
     return (
-      <form className="w-full relative mt-4 md:mt-8 flex flex-col md:flex-row md:items-center rounded-3xl md:rounded-full shadow-2xl bg-[#111828] divide-y divide-neutral-700  dark:divide-neutral-700  md:divide-y-0" style={{ color:"rgb(229 231 233)"}}>
+      <form className="w-full relative mt-4 md:mt-8 flex flex-col md:flex-row md:items-center rounded-3xl md:rounded-full shadow-2xl bg-[#111828] divide-y divide-neutral-700 dark:divide-neutral-700 md:divide-y-0" style={{ color: "rgb(229 231 233)" }}>
+      <div className="w-full flex flex-col md:flex-row md:items-center justify-between">
         <LocationInput
           placeHolder={!switchInput ? "Pick-Up" : "Drop-Off"}
           desc="Athens Airport, Piraeus Port Etc.?"
@@ -168,7 +169,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
           }}
           Id="transfer1"
         />
-
+    
         <LocationInput
           placeHolder={switchInput ? "Pick-Up" : "Drop-Off"}
           desc="Athens Airport, Piraeus Port Etc.?"
@@ -183,7 +184,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
           }}
           Id="transfer2"
         />
-
+    
         <ExperiencesDateSingleInput
           defaultValue={dateValue}
           onChange={(date) => setdateValue(date)}
@@ -192,7 +193,7 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
             setDateFocused(focus);
           }}
         />
-
+    
         <GuestsInput
           defaultValue={guestValue}
           onChange={(data) => {
@@ -200,13 +201,16 @@ const TransferSearchForm: React.FC<TransferSearchFormProps> = ({
           }}
         />
         <div className="px-4 py-5 lg:py-0 mr-6">{checkButton()}</div>
-        <ModalDialog
-          isOpen={isModalOpen}
-          setIsOpen={setIsModalOpen}
-          title={dialogErrorMessage.title}
-          description={dialogErrorMessage.description}
-        />
-      </form>
+      </div>
+    
+      <ModalDialog
+        isOpen={isModalOpen}
+        setIsOpen={setIsModalOpen}
+        title={dialogErrorMessage.title}
+        description={dialogErrorMessage.description}
+      />
+    </form>
+    
     );
   };
 
